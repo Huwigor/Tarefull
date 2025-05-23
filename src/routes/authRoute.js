@@ -16,7 +16,12 @@ router.post('/forgotPassword', async (req, res) => {
     const { email } = req.body;
 
     const user = await User.findOne({ email });
+
     if (!user) return res.status(404).json({ message: 'Usuário não encontrado' });
+
+    if (user.resetToken && user.resetTokenExpiry > Date.now()) {
+        return res.status(400).json({ message: 'Um email de recuperação já foi enviado, verifique sua caixa de mensagem.' });
+    }
 
     const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
 

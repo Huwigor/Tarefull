@@ -147,11 +147,10 @@ const UserLogin = ()=> {
                 <div className={`row`}></div>
               </div>
                 <div className={` mainGoogle`}>
-                  <button type='button' className={'mainBtnGoogle'} onClick={() => window.location.href = "http://localhost:5000/auth/google"}>
-                    <span> className={'btnGoogle'} <img className={'iconGoogle'} src="imagens/icon-google.png" alt="" /><span className={'spanGoogle'}>Continue com o Google</span></span>
+                  <button type='button' className={'btnGoogle'} onClick={() => window.location.href = `${import.meta.env.VITE_ROUTE_SERVER}/auth/google`}>
+                    <img className={'iconGoogle'} src="imagens/icon-google.png" alt="" /><span className='spanTxtGoogle'>Continue com o Google</span>
                   </button>
-                </div>
-                
+                </div>   
             </form>
         </div>
         <div className={`mainTxt`} >

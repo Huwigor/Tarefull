@@ -203,50 +203,31 @@ to {
     margin: 5px;
 }
 
- .mainGoogle{
-     min-width: 100% !important;
-     display: flex;
-     position: relative;
-     margin-top: 10px;
-     align-items: center;
-     justify-content: center;
- }
- .mainBtnGoogle{
-     text-decoration: none;
-     background-color: transparent;
-     border: none;
- }
- .txtGoogle{
-     position: relative;
-     right: 135px;
-     bottom: 35px;
-     font-size: 32px;
-    
+.mainGoogle{
+    min-width: 100% !important;
+    display: flex;
+    position: relative;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
  }
  .btnGoogle{
-     position: relative;
-     border-radius: 50px;
-     font-size: 15px;
-     border: 1px solid #5c5e61;
-     color: rgb(177, 170, 170);
-     padding: 5px;
-     overflow: hidden;
-     z-index: 1;
-     background-color: rgba(0, 0, 0, 0.8);
-     transition: background-color 0.5s ease-in-out;
-     background-color: transparent;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid lightslategray;
+    padding: 10px 10px 10px 10px ;
+    border-radius: 50px;
  }
- 
- 
- .btnGoogle:focus{
-     outline: none;
- }
- .iconGoogle{
-     height: 35px;
-     margin-right: 5px;
- }
- .spanGoogle{
-     padding: 5px 20px 50px 5px;
-     position: relative;
-     top: 3px;
- }
+.iconGoogle{
+    height: 30px;
+}
+.spanTxtGoogle{
+    position: relative;
+    margin-left: 5px;
+}
+.light .spanTxtGoogle{
+    color: #1e1e1f;
+}
+.dark .spanTxtGoogle{
+    color: rgb(184, 174, 174);
+}

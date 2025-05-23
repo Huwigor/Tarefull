@@ -167,10 +167,10 @@ export default function UserRegister(){
                         <div className={`row`}></div>
                         <p>Ou</p>
                         <div className={`row`}></div>
-                        </div>
-                        <div className={` mainGoogle`}>
-                        <button type='button' className='mainBtnGoogle' onClick={() => window.location.href = "http://localhost:5000/auth/google"}>
-                             <button className='btnGoogle'> <img className='iconGoogle' src="imagens/icon-google.png" alt="" /><span className='spanGoogle'>Registre-se com o Google</span></button>
+                    </div>
+                    <div className={` mainGoogle`}>
+                        <button type='button' className={'btnGoogle'} onClick={() => window.location.href = `${import.meta.env.VITE_ROUTE_SERVER}/auth/google`}>
+                            <img className={'iconGoogle'} src="imagens/icon-google.png" alt="" /><span className='spanTxtGoogle'>Continue com o Google</span>
                         </button>
                     </div>
                 </form>

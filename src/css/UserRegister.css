@@ -1,0 +1,252 @@
+
+
+.mainRegister{
+    user-select: none;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mainTxt{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+}
+.typingText {
+    font-size: 2.4rem;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    color: white;
+    position: relative;
+    width: 72%;
+}
+
+.cursor {
+    display: inline-block;
+    animation: blink 0.8s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+from {
+    opacity: 0;
+    transform: translateY(10px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+.fadeInBtn {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-in-out forwards;
+    animation-delay: 0.3s;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    width: 30%;
+    padding: 7px;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+}
+.dark .fadeInBtn{
+    box-shadow: 0px 0px 3px 0px rgb(69, 172, 206);
+    font-weight: bold;
+    background: linear-gradient(90deg, #66b2ff, #0044cc); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.light .fadeInBtn{
+    box-shadow: 0px 0px 5px 0px rgb(15, 15, 15);
+    font-weight: bold;
+    background: linear-gradient(90deg, #121213, #525763); 
+    color: white;
+}
+
+
+.mainFormRegister{
+    font-family: 'Acme', sans-serif !important; 
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 100%;
+    border-radius: 20px;
+}
+.form{
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    width: 470px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+  
+}
+.iconUser{
+    height: 80px;
+    width: 100px;
+    margin: 20px;
+}
+.dark .iconUser{
+    color: #acaeb3;
+}
+.light .iconUser{
+    color: #48494b;
+}
+.boxInput{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.boxInput input{
+    border: none;
+    border-radius: 5px;
+    padding: 7px 15px ;
+    height: 40px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5) ;
+    font-size: 15px;
+    background-color: rgb(201, 194, 194);
+    transition: box-shadow 0.5s ease-in-out;
+    color: rgb(14, 13, 13);
+}
+.boxInput input::placeholder{
+    color: rgb(37, 35, 35);
+}
+.boxInput input:focus{
+    outline: none;
+    box-shadow: 0px 0px 10px 0px rgba(97, 95, 95, 0.973) ;
+}
+
+.boxInputPassword{
+    min-width: 100%;
+    position: relative;
+}
+.iconMail{
+    position: absolute;
+    left: 7px;
+    top: 7px;
+}
+.boxInputPassword input{
+    width: 100%;
+    padding: 7px 45px 7px 45px;
+}
+.iconEye{
+    position: absolute;
+    right: 15px;
+    top: 7px;
+    height: 25px;
+    cursor: pointer;
+    color: rgb(37, 39, 39);
+}
+
+.boxBtn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.boxBtn button{
+    width: 50%;
+    background: #5f2c82; 
+    background: -webkit-linear-gradient(to right, #5f2c82, #49a09d); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5f2c82, #49a09d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 0px #48494b;
+    color: rgb(177, 175, 175);
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.mainRow{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.mainRow p{
+    color: #707174;
+    font-size: 15px;
+    margin: 5px;
+    position: relative;
+    bottom: 10px;
+}
+.row{
+    height: 2px;
+    width: 20px;
+    background-color: #707174;
+    margin: 5px;
+}
+
+ .mainGoogle{
+     min-width: 100% !important;
+     display: flex;
+     position: relative;
+     margin-top: 10px;
+     align-items: center;
+     justify-content: center;
+ }
+ .mainBtnGoogle{
+     text-decoration: none;
+     background-color: transparent;
+     border: none;
+ }
+ .txtGoogle{
+     position: relative;
+     right: 135px;
+     bottom: 35px;
+     font-size: 32px;
+    
+ }
+ .btnGoogle{
+     position: relative;
+     border-radius: 50px;
+     font-size: 15px;
+     border: 1px solid #5c5e61;
+     color: rgb(177, 170, 170);
+     padding: 5px;
+     overflow: hidden;
+     z-index: 1;
+     background-color: rgba(0, 0, 0, 0.8);
+     transition: background-color 0.5s ease-in-out;
+     background-color: transparent;
+ }
+ 
+ 
+ .btnGoogle:focus{
+     outline: none;
+ }
+ .iconGoogle{
+     height: 35px;
+     margin-right: 5px;
+ }
+ .spanGoogle{
+     padding: 5px 20px 50px 5px;
+     position: relative;
+     top: 3px;
+ }

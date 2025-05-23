@@ -1,0 +1,180 @@
+/* HEADER */
+
+.header{
+    padding: 20px;
+    position: fixed;
+    min-width: 100%;
+    top: 0;
+}
+.header img{
+  height: 100px;
+  width: 100px;
+  margin-left: 30px;
+  position: relative;
+  bottom: 20px;
+}
+nav.navLinks{
+    padding: 10px;
+    display: flex;
+    margin-top: 10px;
+    position: relative;
+    right: 3%;
+    flex-direction: row;
+}
+.linkNav{
+    margin-right: 30px;
+    display: flex;
+    max-height: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    background-color: transparent;
+    transition: color 0.3s ease-in-out;
+}
+.linkNav:focus{
+    outline: none;  
+}
+.light .linkNav{
+    color: rgb(49, 46, 46);
+}
+.dark .linkNav{
+    color: rgb(168, 161, 161) ;
+}
+.mainUser{
+    position: relative;
+}
+.btnUser{
+    background-color: transparent;
+    border: none;
+    margin-right: 30px;
+    display: flex;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+.light .btnUser{
+    color: rgb(49, 46, 46);
+}
+.dark .btnUser{
+    color: rgb(168, 161, 161) ;
+}
+.menuUser{
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    min-width: 150px;
+    right: 0;
+    top: 60%;
+    z-index: 10 !important;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px rgb(21, 65, 80);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.menuUserAberto{
+    transform: scaleY(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+.chevron-icon {
+    transition: transform 0.3s ease !important;
+}
+  
+.chevron-icon.rotated {
+   transform: rotate(180deg);
+}
+
+.linkUser{
+    padding: 5px 35px;
+    margin: 5px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    display: flex;
+    color: rgb(49, 46, 46);
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+.dark .linkUser{
+    color: rgb(168, 161, 161) ;
+}
+.light .linkUser{
+    color: rgb(49, 46, 46);
+}
+
+
+
+
+
+/*MAIN CONTEXT*/
+
+.mainContent{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    margin-top: 5%;
+    z-index: 3;
+    flex-direction: column;
+    align-items: center;
+}
+.mainTxt{
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.mainTxt p{
+    width: 60%;
+    font-size: 45px;
+    color: rgb(51, 48, 48);
+    font-weight: bold;
+}
+.fadeSlide {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .hide {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+.mainContent button{
+    width: 20%;
+    position: relative;
+    bottom: 80px;
+    padding: 7px;
+    border: none;
+    box-shadow: 0px 0px 5px 0px rgb(8, 36, 46);
+    font-size: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #66b2ff, #0044cc); 
+
+    transition: background-color 0.5s ease-in-out;
+}
+.mainContent button:hover{
+    background-color: rgba(2, 4, 26, 0.4);
+}
+
+

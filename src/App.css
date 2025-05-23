@@ -1,0 +1,21 @@
+@import url(https://fonts.bunny.net/css?family=acme:400|alegreya-sans:300);
+
+body{
+    font-family: 'Alegreya Sans', sans-serif !important; 
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark p{
+    color: lightgray;
+}
+
+
+body.light {
+    background-color: white;
+    color: black;
+}

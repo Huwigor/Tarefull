@@ -1,0 +1,36 @@
+.mainGrupos{
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    padding: 20px;
+}
+.grupos{
+    min-height: 200px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    border: none;
+    box-shadow: 0px 0px 2px 0px rgba(27, 27, 27, 0.8);
+    min-width: 90%;
+    padding-bottom: 40px;
+}
+.grupos h3{
+    color: rgb(22, 23, 24);
+    font-size: 35px;
+}
+.grupos p{
+    color: rgb(23, 23, 24);
+    font-size: 20px;
+}
+.tarefa{
+    box-shadow: 0px 0px 2px 0px rgba(27, 27, 27, 0.8);
+    padding: 20px;
+    display: flex;
+    margin: 10px !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    min-height: 250px;
+    margin-top: 20px;
+}

@@ -1,0 +1,238 @@
+
+.header{
+    padding: 20px;
+}
+.header img{
+  height: 100px;
+  width: 100px;
+  margin-left: 30px;
+  position: relative;
+  bottom: 20px;
+}
+.navLinks{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.linkNav{
+    margin-right: 30px;
+    text-decoration: none;
+    color: rgb(39, 36, 36);
+    font-size: 18px;
+    border: none;
+    max-height: 20px;
+    display: flex;
+    background-color: transparent;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+.linkNav:focus{
+    outline: none;  
+}
+.dark .linkNav{
+  color: rgb(168, 161, 161) ;
+}
+.light .linkNav{
+  color: rgb(49, 46, 46);
+}
+
+.mainUser{
+    position: relative;
+}
+.btnUser{
+    background-color: transparent;
+    border: none;
+    margin-right: 30px;
+    text-decoration: none;
+    color: rgb(39, 36, 36);
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    position: relative;
+    bottom: 1px;
+    transition: color 0.3s ease-in-out;
+}
+.dark .btnUser{
+  color: rgb(168, 161, 161) ;
+}
+.light .btnUser{
+  color: rgb(49, 46, 46);
+}
+.menuUser{
+    position: absolute;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    min-width: 150px;
+    right: 0;
+    top: 60%;
+    z-index: 5;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+.dark .menuUser{
+  box-shadow: 0px 0px 3px 0px rgb(21, 65, 80);
+}
+.light .menuUser{
+  box-shadow: 0px 0px 5px 0px rgb(0, 0, 0);
+}
+.menuUserAberto{
+    max-height: 300px;
+    opacity: 1;
+}
+.linkUser{
+    padding: 5px 20px;
+    margin: 5px;
+    margin-top: 5px;
+    width: 90%;
+    border-radius: 5px;
+    display: flex;
+    text-decoration: none;
+    color: rgb(39, 36, 36);
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+
+
+.menuOptions{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.btnMenu{
+    background-color: rgba(223, 223, 217, 0.9);
+    border: none;
+    border-radius: 8px;
+    color: rgb(5, 5, 5);
+    width: 100%;
+    padding: 15px 15px 15px 15px;
+    margin-top: 5px;
+}
+.btnMenu:focus{
+    outline: none;
+}
+
+
+.formContainer {
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  .formTarefas {
+    height: auto;
+    display: flex;
+    padding: 20px;
+    width: 40%;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    align-items: center;
+    background-color: rgba(192, 192, 188, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    gap: 10px;
+    padding-bottom: 50px;
+  }
+  .formTarefas input{
+    width: 80%;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+  }
+  .formTarefas input:focus{
+    outline: none;
+  }
+  .formTarefas input::placeholder{
+    color: rgb(20, 20, 20);
+  }
+  .formSelect{
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 150px;
+    margin-top: 20px;
+  }
+  .formSelect:focus{
+    outline: none;
+  }
+  .formTarefas textarea{
+    width: 80%;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+  }
+  .formTarefas textarea:focus{
+    outline: none;
+  }
+  .formTarefas textarea::placeholder{
+    color: rgb(14, 13, 13);
+  }
+  .boxInputTime{
+    width: 100%;
+  }
+  .boxInputTime input{
+    width: 50%;
+    margin-left: 50px;
+  }
+  .boxInputTime p{
+    color: white;
+    margin-top: 20px;
+    margin-left: 60px;
+  }
+
+ .menuGrupo{
+  opacity: 0;
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+} 
+.menuGrupo button{
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  color: rgb(7, 7, 7);
+  background-color: rgba(223, 223, 217, 0.9);
+  border-radius: 8px;
+  width: 90%;
+}
+
+.menuGrupoOpen{
+    opacity: 1;
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+ }
+ .menuGrupoOpen button{
+   padding: 10px;
+   border: none;
+   background-color: transparent;
+   color: rgb(7, 7, 7);
+   background-color: rgba(223, 223, 217, 0.9);
+   border-radius: 8px;
+   width: 90%;
+ }
+
+ .mainComponents{
+  width: 80%;
+ }

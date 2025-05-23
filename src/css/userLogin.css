@@ -1,0 +1,290 @@
+@import url(https://fonts.bunny.net/css?family=acme:400|alegreya-sans:300);
+
+
+
+
+.headerAuth{
+    padding: 20px;
+    min-width: 100%;
+    top: 0;
+}
+.iconHeader{
+    height: 100px;
+    width: 100px;
+    margin-left: 30px;
+    position: relative;
+    bottom: 20px;
+}
+
+.mainRegistro{
+    user-select: none;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    min-height: auto;
+    justify-content: center;
+    z-index: 5 !important;
+}
+.mainTxt{
+    width: 57%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.typingText {
+    font-size: 2rem;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    color: white;
+    position: relative;
+    right: 5%;
+    margin-bottom: 20px;
+    min-width: 73%;
+    text-align: start;
+}
+
+.cursor {
+    display: inline-block;
+    animation: blink 0.8s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+from {
+    opacity: 0;
+    transform: translateY(10px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+.fadeInBtn {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-in-out forwards;
+    animation-delay: 0.3s;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    width: 30%;
+    padding: 7px;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+}
+.dark .fadeInBtn{
+    box-shadow: 0px 0px 3px 0px rgb(69, 172, 206);
+    font-weight: bold;
+    background: linear-gradient(90deg, #66b2ff, #0044cc); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.light .fadeInBtn{
+    box-shadow: 0px 0px 5px 0px rgb(15, 15, 15);
+    font-weight: bold;
+    background: linear-gradient(90deg, #121213, #525763); 
+    color: white;
+}
+
+.mainForm{
+    font-family: 'Acme', sans-serif !important; 
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    min-height: 100%;
+    border-radius: 20px;
+    align-items: center;
+}
+.mainForm form{
+    user-select: none;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 470px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+  
+}
+
+
+
+.boxInput{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.boxInput input{
+    border: none;
+    border-radius: 5px;
+    padding: 7px 15px ;
+    height: 40px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5) ;
+    font-size: 15px;
+    background-color: rgb(201, 194, 194);
+    transition: box-shadow 0.5s ease-in-out;
+    color: rgb(14, 13, 13);
+}
+.boxInput input::placeholder{
+    color: rgb(37, 35, 35);
+}
+.boxInput input:focus{
+    outline: none;
+    box-shadow: 0px 0px 10px 0px rgba(97, 95, 95, 0.973) ;
+}
+.boxInputPassword{
+    min-width: 100%;
+    position: relative;
+}
+.iconMail{
+    position: absolute;
+    left: 7px;
+    top: 7px;
+}
+.dark .iconMail{
+    color: #727275;
+}
+.light .iconMail{
+    color: #1e1e1f;
+}
+.boxInputPassword input{
+    width: 100%;
+    padding: 7px 45px 7px 45px;
+}
+.iconEye{
+    position: absolute;
+    right: 15px;
+    top: 7px;
+    height: 25px;
+    cursor: pointer;
+    color: rgb(37, 39, 39);
+}
+.mainRecuperar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+.dark .linkRecuperar{
+    color: rgb(184, 174, 174);
+}
+.light .linkRecuperar{
+    color: #1e1e1f;
+}
+
+.boxBtn{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.boxBtn button{
+    width: 50%;
+    position: relative;
+    background: rgba(0, 0, 0, 0.9);
+    border: none;
+    padding: 8px;
+    box-shadow: 0px 0px 3px 0px #48494b;
+    color: rgb(177, 175, 175);
+    border-radius: 5px;
+    transition: background-color 0.5s ease-in-out;
+}
+.boxBtn button:hover{
+    background-color: #1e1e1f;
+}
+
+.mainRow{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.mainRow p{
+    color: #707174;
+    font-size: 15px;
+    margin: 5px;
+    position: relative;
+    bottom: 10px;
+}
+.row{
+    height: 2px;
+    width: 20px;
+    background-color: #707174;
+    margin: 5px;
+}
+
+ .mainGoogle{
+     min-width: 100% !important;
+     display: flex;
+     position: relative;
+     margin-top: 10px;
+     align-items: center;
+     justify-content: center;
+ }
+ .mainBtnGoogle{
+     text-decoration: none;
+     background-color: transparent;
+     border: none;
+ }
+ .txtGoogle{
+     position: relative;
+     right: 135px;
+     bottom: 35px;
+     font-size: 32px;
+    
+ }
+ .btnGoogle{
+     position: relative;
+     border-radius: 50px;
+     font-size: 15px;
+     border: 1px solid #5c5e61;
+     padding: 5px;
+     overflow: hidden;
+     z-index: 1;
+     background-color: rgba(0, 0, 0, 0.8);
+     transition: background-color 0.5s ease-in-out;
+     background-color: transparent;
+ }
+.dark .btnGoogle{
+    color: rgb(177, 170, 170);
+}
+.light .btnGoogle{
+    color: #1e1e1f;
+}
+ 
+
+ .btnGoogle:focus{
+     outline: none;
+ }
+ .iconGoogle{
+     height: 35px;
+     margin-right: 5px;
+ }
+ .spanGoogle{
+     padding: 5px 20px 50px 5px;
+     position: relative;
+     top: 3px;
+ }
+ .linkEntrar{
+     margin-top: 20px;
+     color: rgb(153, 147, 147) !important;
+ }

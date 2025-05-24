@@ -4,7 +4,8 @@ import axios from 'axios'
 import '../css/Home.css'
 import ThemeToggle from './themeToggle.jsx'
 import { useTheme } from './Theme.jsx'
-import { ChevronDown, UserRoundMinus, UserRound } from 'lucide-react'
+import { ChevronDown, UserRoundMinus} from 'lucide-react'
+import logo from '../assets/icon-logo.png'
 
 
 
@@ -26,6 +27,17 @@ export default function MainHeader(){
     
     useEffect(() => {
 
+        async function buscarSessao(){
+            try{
+                const cookieUser = await axios.get(`${import.meta.env.VITE_ROUTE_SERVER}/api/cookieUser`, {withCredentials:true})
+                setUsuario(cookieUser.data)
+            }catch(err){
+                console.error('usuario não autenticado', err)
+            }
+        }
+        
+        buscarSessao()
+        
         function handleClickFora(event) {    
           if (menuRef.current && btnRef.current && !menuRef.current.contains(event.target) && !btnRef.current.contains(event.target)) {
             setMenuAberto(false);
@@ -34,17 +46,6 @@ export default function MainHeader(){
       
         document.addEventListener('click', handleClickFora);
       
-        async function buscarSessao(){
-            try{
-                const cookieUser = await axios.get(`${import.meta.env.VITE_ROUTE_SERVER}/api/cookieUser`, {withCredentials:true})
-                  setUsuario(cookieUser.data)
-            }catch(err){
-             console.error('usuario não autenticado', err)
-            }
-        }
-        
-        buscarSessao()
-
         return () => {
           document.removeEventListener('click', handleClickFora);
         };
@@ -58,7 +59,7 @@ export default function MainHeader(){
             <nav className={` mx-auto ${theme} navLinks `}>
                 <Link className='linkNav' to='/makeTask' > Criar Tarefas</Link>
                 <div className={`mainUser`}>
-                   <button ref={btnRef} id='btnUser' className={`btnUser`} onClick={abrirMenu}> Olá!, {usuario?.user || usuario.nome} <ChevronDown className={`chevron-icon ${menuAberto ? 'rotated' : ''}`} /></button>
+                   <button ref={btnRef} id='btnUser' className={`btnUser`} onClick={abrirMenu}> {usuario?.user || usuario.nome} <ChevronDown className={`chevron-icon ${menuAberto ? 'rotated' : ''}`} /></button>
                    <div ref={menuRef} id='menuUser' className={` menuUser ${menuAberto ? 'menuUserAberto' : ''}`}>
                       <button className={`linkUser`} onClick={handleLogout} ><UserRoundMinus style={{height:'20px', marginRight:'5px', marginTop:'3px'}}/> Sair</button>
                    </div>
@@ -90,7 +91,6 @@ export default function MainHeader(){
           .then(() => {
             setUsuario(null);
             setMenuAberto(false);
-            window.location.href = "/";
           })
           .catch(err => console.error("Erro ao fazer logout:", err));
       }
@@ -98,7 +98,7 @@ export default function MainHeader(){
 
     return(
         <header className={`d-flex header`}>
-            <img src="imagens/icon-logo.png" alt="" />
+            <img src={logo} alt="" />
             {usuario ? (
                     <NavLogged/>
                 ) : (

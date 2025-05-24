@@ -1,13 +1,16 @@
 import { useEffect, useState, useRef } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import '../css/makeTask.css'
 import axios from 'axios'
 import ThemeToggle from './themeToggle.jsx'
 import { UserRoundMinus, ChevronDown, House, UserRound } from 'lucide-react'
+import logo from '../assets/icon-logo.png'
 
 
 
 export default function HeaderTasks(){
+
+  const navigate = useNavigate()
  
 
     const [menuAberto, setMenuAberto] = useState(false)
@@ -50,6 +53,7 @@ export default function HeaderTasks(){
             }
 
         }, [])
+
     
     
     
@@ -59,21 +63,20 @@ export default function HeaderTasks(){
               credentials: "include",
             })
               .then(() => {
-                setUsuario(null);
-                setMenuAberto(false);
-                window.location.href = "/";
+                navigate('/')
               })
               .catch(err => console.error("Erro ao fazer logout:", err));
           }
 
 
+
     return(
         <div className={` d-flex header`}>
-                <img src="imagens/icon-logo.png" alt="" />
+                <img src={logo} alt="" />
                 <nav className={` mx-auto navLinks`}>
                 <Link className={`linkNav`} to='/' > <House style={{height:'20px', marginRight:'5px', marginTop:'3px'}}/> Home</Link>
                 <div className={`mainUser`}>
-                   <button ref={btnRef} id='btnUser' className={`btnUser`} onClick={abrirMenu}> <UserRound style={{height:'20px', marginRight:'5px', marginTop:'3px'}}/> {usuario ? usuario.nome : '' } <ChevronDown className={`chevron-icon ${menuAberto ? 'rotated' : ''}`} /></button>
+                   <button ref={btnRef} id='btnUser' className={`btnUser`} onClick={abrirMenu}> <UserRound style={{height:'20px', marginRight:'5px', marginTop:'3px'}}/> {usuario ? (usuario.user || usuario.nome) : 'visitante'} <ChevronDown className={`chevron-icon ${menuAberto ? 'rotated' : ''}`} /></button>
                    <div ref={menuRef} id='menuUser' className={`menuUser ${menuAberto ? 'menuUserAberto' : ''}`}>
                       <button className={`linkUser`} onClick={handleLogout} style={{marginBottom:'10px'}}> <UserRoundMinus style={{height:'20px', marginRight:'5px', marginTop:'3px'}}/> Sair</button>
                    </div>

@@ -1,0 +1,30 @@
+@import url(https://fonts.bunny.net/css?family=acme:400|alegreya-sans:300);
+
+body{
+    font-family: 'Alegreya Sans', sans-serif !important; 
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.mainTxtStepTwo{
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center !important;
+}
+.boxTxt{
+    width: 55%;
+    margin-top: 80px;
+}
+.typingTextStepTwo {
+    font-size: 2.4rem;
+    font-family: 'Alegreya Sans', sans-serif !important;
+    line-height: 1.6;
+    color: rgb(27, 22, 22);
+    position: relative;
+}
+
+.cursorTwo {
+    display: inline-block;
+    animation: blink 0.8s infinite;
+    margin-left: 2px;
+}

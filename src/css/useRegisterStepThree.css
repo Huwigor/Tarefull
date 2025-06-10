@@ -1,0 +1,102 @@
+
+.mainRegisterStepThree{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.mainRegisterStepThree form{
+    margin-top: 30px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+.boxInputStepThree{
+    position: relative;
+    width: 90%;
+    margin-top: 40px;
+}
+.boxInputStepThree input{
+    min-width: 100%;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid #9f9fa1;
+    background-color: #c6c7c9;
+    position: relative;
+    padding: 7px 40px !important;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.boxInputStepThree input:focus{
+    outline: none;
+}
+.boxInputStepThree input::placeholder{
+    color: #1e1e1f;
+}
+.light .errorPassword {
+    position: absolute;
+    color: red;
+    font-weight: bold;
+    left: 10px;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+.dark .errorPassword {
+    position: absolute;
+    color: red;
+    font-weight: bold;
+    left: 10px;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+.mainRegisterStepThree form button{
+    margin-top: 40px;
+    width: 50%;
+}
+.iconUserStepThree{
+    position: absolute;
+    left: 5px;
+    top: 7px;
+    color: rgb(116, 115, 115);
+    z-index: 5;
+    width: 27px;
+    padding-right: 5px;
+    border-right: 1px solid rgb(148, 147, 147);
+}
+.iconEyeStepThree{
+    position: absolute;
+    right: 15px;
+    top: 7px;
+    height: 25px;
+    cursor: pointer;
+    color: rgb(68, 71, 71);
+}
+
+
+
+.mainTxtStepThree{
+    width: 50%;
+    max-height: 50%;
+    margin-top: 20px;
+    display: flex;
+}
+.typingTextStepThree {
+    font-size: 2.4rem;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    color: rgb(12, 11, 11);
+    position: relative;
+    width: 70%;
+    left: 15%;
+    height: 100%;
+}
+
+.cursorStepThree {
+    display: inline-block;
+    animation: blink 0.8s infinite;
+    margin-left: 2px;
+}
+

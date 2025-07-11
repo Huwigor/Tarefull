@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import '../css/UserRegisterStepTwo.css'
+import '../css/userRegisterStepTwo.css'
 import HeaderAuth from '../components/headerAuth.jsx'
 
 

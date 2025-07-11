@@ -51,14 +51,14 @@ const sessionMiddleware = session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: true,
+        secure: process.env.NODE_ENV === "production",
         maxAge: 1000 * 60 * 60 * 24 * 30
     }
 })
 
 
 app.use(cors({
-    origin: "http://localhost:5173", 
+    origin: "https://tarefull.onrender.com/", 
     credentials: true
 }))
 

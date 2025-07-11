@@ -1,9 +1,13 @@
 import axios from 'axios'
-const SUBTASK_ROUTES = import.meta.env.VITE_SUBTASK_ROUTES
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+const ROUTES_SUBTASK = process.env.SUBTASK_ROUTES
 
 export const getSubTask = async ({tarefaId})=>{
     const res = await axios.get(
-        `${SUBTASK_ROUTES}load`,
+        `${ROUTES_SUBTASK}load`,
         {
             params:{tarefaId:tarefaId},
             withCredentials:true
@@ -14,7 +18,7 @@ export const getSubTask = async ({tarefaId})=>{
 
 export const addSubTask = async ({task, tarefaId})=>{
     const res = await axios.put(
-        `${SUBTASK_ROUTES}add`, 
+        `${ROUTES_SUBTASK}add`, 
         {task, tarefaId}, 
         {withCredentials:true})
     return res.data
@@ -22,7 +26,7 @@ export const addSubTask = async ({task, tarefaId})=>{
 
 export const editSubTask = async({descricao, tarefaId, subTarefaId})=>{
     const res = await axios.put(
-        `${SUBTASK_ROUTES}edit`, 
+        `${ROUTES_SUBTASK}edit`, 
         {descricao, tarefaId, subTarefaId}, 
         {withCredentials:true}
     )
@@ -31,7 +35,7 @@ export const editSubTask = async({descricao, tarefaId, subTarefaId})=>{
 
 export const deleteSubTask = async({subTarefaId, tarefaId})=>{
     const res = await axios.delete(
-        `${SUBTASK_ROUTES}delete`,
+        `${ROUTES_SUBTASK}delete`,
         {
             data:{subTarefaId, tarefaId},
             withCredentials:true

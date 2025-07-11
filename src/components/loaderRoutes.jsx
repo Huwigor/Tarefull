@@ -14,14 +14,14 @@ import MakeTask from "../pages/MakeTask.jsx";
 import App from "../App.jsx";
 import axios from "axios";
 
-const COOKIE_ROUTES = import.meta.env.VITE_ROUTE_COOKIE_USER;
+const COOKIE_USER = import.meta.env.VITE_ROUTE_COOKIE_USER;
 
 export async function requireAuthLoader({request}) {
   const url = new URL(request.url)
   const pathname = url.pathname
 
   try {
-    const resp = await axios.get(`${COOKIE_ROUTES}`, {
+    const resp = await axios.get(`${COOKIE_USER}`, {
       withCredentials: true,
     });
  

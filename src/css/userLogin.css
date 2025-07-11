@@ -1,4 +1,52 @@
+@media(max-width: 600px){
+    .iconHeader{
+        right: 5%;
+    }
+    .mainRegistro{
+        flex-direction: column !important;
+    }
+    .mainRegistro form{
+        min-width: 90% !important;
+    }
+    .errorInput{
+        top: 110% !important;
+        font-size: 13px;
+    }
+    .errorMsg{
+        text-align: center;
+        font-size: 13px;
+    }
+    .iconAlert{
+        left: 0 !important;
+        height: 20px;
+    }
+    .mainTxt{
+        margin-top: 80px;
+        left: 0 !important;
+        width: 100% !important;
+    }
+    .typingText{
+        font-size: 2rem !important;
+      
+        min-width: 90% !important;
+    }
+    .fadeInBtn{
+        margin-top: 50px;
+    }
+}
 
+@media(min-width:601px) and (max-width:1200px){
+    .mainTxt{
+        margin-top: 70px;
+    }
+    .typingText{
+        font-size: 2rem !important;
+    }
+    .fadeInBtn{
+        width: 40% !important;
+        margin-top: 30px;
+    }
+}
 
 .headerAuth{
     padding: 20px;
@@ -8,7 +56,6 @@
 .iconHeader{
     height: 100px;
     width: 100px;
-    margin-left: 30px;
     position: relative;
     bottom: 20px;
 }
@@ -36,7 +83,7 @@
     left: 3%;
 }
 .typingText {
-    font-size: 2.4rem !important;
+    font-size: 2.4rem ;
     width: 80%;
     height: 100%;
     line-height: 1.6;
@@ -267,23 +314,23 @@ to {
     margin: 5px;
 }
 
- .mainGoogle{
+.mainGoogle{
     min-width: 100% !important;
     display: flex;
     position: relative;
     align-items: center;
     justify-content: center;
- }
- .btnGoogle{
+}
+.btnGoogle{
     text-decoration: none;
     background-color: transparent;
     border: 1px solid lightslategray;
     padding: 10px 20px 10px 10px ;
     border-radius: 50px;
- }
- .iconGoogle{
+}
+.iconGoogle{
     height: 30px;
- }
+}
 .spanTxtGoogle{
     position: relative;
     margin-left: 5px;

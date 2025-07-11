@@ -1,7 +1,11 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
+
 
 const UserSchema = new mongoose.Schema({
+  _id: {
+    type: mongoose.Types.ObjectId,
+    default: () => new mongoose.Types.ObjectId()
+  },
   nome: {
     type: String,
     required: true
@@ -18,6 +22,9 @@ const UserSchema = new mongoose.Schema({
   
   resetToken: String,
   resetTokenExpiry:Date,
+
+  authToken: String,
+  authTokenExpiry: Date,
 
   googleId: {
     type: String

@@ -1,4 +1,3 @@
-// MainContent.jsx
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../css/Home.css'
@@ -33,8 +32,8 @@ export default function MainContent() {
   }, []);
 
   return (
-    <div className={`mainContent`}>
-      <div className={`mainTxt`}>
+    <div className={`mainContentHome`}>
+      <div className={`mainTxtHome`}>
         <p className={`fadeSlide ${fade ? 'show' : 'hide'}`}>
           {comments[index]}
         </p>

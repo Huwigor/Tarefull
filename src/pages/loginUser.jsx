@@ -1,24 +1,22 @@
 import '../css/userLogin.css'
-import { TriangleAlert, CircleCheck, ShieldAlert, Mail, Eye, Lock } from 'lucide-react'
+import { TriangleAlert, CircleCheck, ShieldAlert, Mail, Eye, EyeOff, Lock } from 'lucide-react'
 import { useState, useEffect } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Link, useNavigate, useLocation, useSearchParams } from 'react-router-dom'
 import HeaderAuth from '../components/headerAuth.jsx'
-import axios from 'axios'
+import { loginUser } from '../services/userServices.js'
+import { validarEmail, validarSenha } from '../utils/sanitizeDataAuthUser.js'
 
 
 
 
 const UserLogin = ()=> {
 
-
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams();
+  const from = searchParams.get("from") || "/";
   const location = useLocation()
-  const from = location.state?.from?.pathname || '/';
   const [msg, setMsg] = useState('')
   const [loading, setLoading] = useState(false)
-
-
-
 
   
   const [email, setEmail] = useState('')
@@ -26,44 +24,6 @@ const UserLogin = ()=> {
   const [iconEmailInvalid, setIconEmailInvalid] = useState(false)
   const [emailValid, setEmailValid] = useState(null)
   const [emailError, setEmailError] = useState('')
-  
-
-  const validarEmail = (email) => {
-    const trimmedEmail = email.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-    if (trimmedEmail.length === 0) {
-      setEmailValid(false)
-      setIconEmailValid(false)
-      setIconEmailInvalid(true)
-      setEmailError('O email é obrigatório!')
-      return 
-    }
-    if (trimmedEmail.length > 254) {
-      setEmailValid(false)
-      setIconEmailValid(false)
-      setIconEmailInvalid(true)
-      setEmailError('O email deve ter no máximo 254 caracteres!')
-      return 
-    }
-    if (!emailRegex.test(trimmedEmail)) {
-      setEmailValid(false)
-      setIconEmailValid(false)
-      setIconEmailInvalid(true)
-      setEmailError('Formato de email inválido!')
-      return 
-    }
-    
-    setEmailValid(true)
-    setIconEmailInvalid(false)
-    setIconEmailValid(true)
-    setEmailError('')
-    return 
-  }
-  
-  
-  
-  
   
   
   const [senha, setSenha] = useState('')
@@ -73,45 +33,7 @@ const UserLogin = ()=> {
   const [iconPasswordInvalid, setIconPasswordInvalid] = useState(false)
   const [showSenha, setShowSenha] = useState(false);
 
-  const validarSenha = (senha) => {
-    const hasUpperCase = /[A-Z]/.test(senha);
-    const hasSymbol = /[^A-Za-z0-9]/.test(senha);
-    const hasLength = senha.length >= 8 && senha.length <= 50;
   
-    if (!hasLength) {
-      setPasswordValid(false)
-      setIconPasswordValid(false)
-      setIconPasswordInvalid(true) 
-      setPasswordError('A senha deve ter entre 8 a 50 caracteres! ')
-      return 
-    }
-    if (!hasUpperCase) {
-      setPasswordValid(false)
-      setIconPasswordValid(false)
-      setIconPasswordInvalid(true)
-      setPasswordError('A senha deve ter pelo menos uma letra maiúscula! ')
-      return 
-    }
-    if (!hasSymbol) {
-      setPasswordValid(false)
-      setIconPasswordValid(false)
-      setIconPasswordInvalid(true)
-      setPasswordError('A senha deve ter ao menos um símbolo! ')
-      return 
-    }
-  
-    setPasswordValid(true)
-    setIconPasswordInvalid(false)
-    setIconPasswordValid(true)
-    setPasswordError('')
-    return 
-  };
-  
-
-
-
-
-
   
   const fullText = "Bem-vindo de volta! Acesse sua conta ou cadastre-se para desbloquear sua produtividade.";
   const [typedText, setTypedText] = useState('');
@@ -131,27 +53,29 @@ const UserLogin = ()=> {
   }, [index]);
 
   
-
-
-
-
-
-  const USER_LOGIN_ROUTE = import.meta.env.VITE_ROUTE_USER_LOGIN
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setLoading(true)
-
-    const isEmailValid = emailValid
-    const isPasswordValid = passwordValid
-
-    if (!isEmailValid || !isPasswordValid) {
-      setLoading(false)
+    const emailValidado = validarEmail(email)
+    if(!emailValidado.isValid){
+      setMsg(emailValidado.error)
       return
     }
+    const emailLimpo = emailValidado.valor
+
+    const senhaValidada = validarSenha(senha)
+    if(!senhaValidada.isValid){
+      setMsg(senhaValidada.error)
+      return
+    }
+    const senhaLimpa = senhaValidada.valor
+      
+    setLoading(true)
   
     try {
-      const response = await axios.post(`${USER_LOGIN_ROUTE}`, { email, senha }, { withCredentials:true })
+
+      const res = await loginUser({email:emailLimpo, senha:senhaLimpa})
       
       setTimeout(()=>{
         setEmail('')
@@ -159,7 +83,7 @@ const UserLogin = ()=> {
         setEmailValid(null)
         setPasswordValid(null)
         setLoading(false)
-        navigate(from, { replace: true });
+       navigate(from, { replace: true });   
       }, 500)
     } catch (err) {
       setTimeout(()=>{
@@ -174,11 +98,6 @@ const UserLogin = ()=> {
   };
 
 
-
-
-
-
-
   return(
 
     <> 
@@ -190,7 +109,7 @@ const UserLogin = ()=> {
                 <p>Verificando credenciais!</p>
             </div>
           )}
-          <form action="" onSubmit={handleSubmit}>
+          <form  action="" onSubmit={handleSubmit}>
 
               <div className={'boxInput'}>
                 <Mail className={`iconMail`} />
@@ -202,8 +121,13 @@ const UserLogin = ()=> {
                   placeholder="Seu email"
                   className={emailValid === null ? '' : emailValid ? 'input-success' : 'input-error'}
                   onChange={(e) => {
-                    setEmail(e.target.value);
-                    validarEmail(e.target.value);
+                    const valor = e.target.value
+                    setEmail(valor);
+                    const resultado = validarEmail(valor)
+                    setEmailValid(resultado.isValid);
+                    setEmailError(resultado.error);
+                    setIconEmailValid(resultado.isValid);
+                    setIconEmailInvalid(!resultado.isValid);
                   }}
                 />
                 {emailError && <p className='errorInput'>{emailError}</p>}
@@ -219,8 +143,14 @@ const UserLogin = ()=> {
                     value={senha}
                     placeholder="Sua senha"
                     onChange={(e) => {
-                      setSenha(e.target.value);
-                      validarSenha(e.target.value);
+                      const valor = e.target.value
+                      setSenha(valor)
+                      const resultado = validarSenha(valor)
+                      setPasswordValid(resultado.isValid);
+                      setPasswordError(resultado.error);
+                      setIconPasswordValid(resultado.isValid);
+                      setIconPasswordInvalid(!resultado.isValid);
+                      
                     }}
                       className={passwordValid === null ? '' : passwordValid ? 'input-success' : 'input-error'}
                     />
@@ -250,7 +180,7 @@ const UserLogin = ()=> {
               </div>
 
               <div className={` mainGoogle`}>
-                <button type='button' className={'btnGoogle'} onClick={() => window.location.href = `${import.meta.env.VITE_ROUTE_SERVER}/auth/google`}>
+                <button type='button' className={'btnGoogle'} onClick={() => window.location.href = `${import.meta.env.VITE_USER_AUTH_GOOGLE}`}>
                   <img className={'iconGoogle'} src="imagens/icon-google.png" alt="" /><span className='spanTxtGoogle'>Continue com o Google</span>
                 </button>
               </div>   

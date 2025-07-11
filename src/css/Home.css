@@ -1,10 +1,51 @@
+@media(max-width:800px){
+    .mainTxtHome p{
+      font-size: 1.8rem !important;
+      width: 80% !important;
+    }
+    .mainContentHome button{
+        width: 50% !important;
+        bottom: 60px !important;
+    }
+    .menuUser{
+        min-width: 250px !important;
+        left: -200% !important;
+    }
+    .secondMainContent{
+        flex-direction: column !important;
+    }
+    .mainTxtSecond{
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center !important;
+        margin-bottom: 20px;
+    }
+    .mainTxtSecond p{
+        font-size: 17px !important;
+        width: 80% !important;
+        left: 0 !important;
+    }
+    .mainImgSecond{
+        width: 100% !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mainImgSecond img{
+        width: 90% !important;
+        height: 400px !important;
+        right: 0 !important;
+    }
+}
+
 /* HEADER */
 
 .header{
     padding: 20px;
-    position: fixed;
     min-width: 100%;
     top: 0;
+    user-select: none;
 }
 .header img{
   height: 100px;
@@ -22,9 +63,8 @@ nav.navLinks{
     flex-direction: row;
 }
 .linkNav{
-    margin-right: 30px;
     display: flex;
-    max-height: 20px;
+    min-height: 35px;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
@@ -66,8 +106,10 @@ nav.navLinks{
     opacity: 0;
     pointer-events: none;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    min-width: 150px;
-    right: 0;
+    max-width: 150px !important;
+    left: 0;
+    background-color: rgba(48, 46, 46, 0.8);
+    backdrop-filter: blur(10px);
     top: 60%;
     z-index: 10 !important;
     border-radius: 10px;
@@ -77,6 +119,9 @@ nav.navLinks{
     align-items: center;
     text-align: center;
     justify-content: center;
+}
+.light .menuUser{
+    background-color: rgb(199, 200, 201);
 }
 .menuUserAberto{
     transform: scaleY(1);
@@ -118,26 +163,27 @@ nav.navLinks{
 
 /*MAIN CONTEXT*/
 
-.mainContent{
-    width: 100%;
-    height: 500px;
+.mainContentHome{
+    user-select: none;
+    min-width: 100%;
+    height: 400px;
+    overflow: hidden;
     display: flex;
-    margin-top: 5%;
     z-index: 3;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
-.mainTxt{
-    width: 100%;
-    height: 300px;
-    margin-top: 20px;
+.mainTxtHome{
+    min-width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-.mainTxt p{
+.mainTxtHome p{
     width: 60%;
     font-size: 45px;
     color: rgb(51, 48, 48);
@@ -159,12 +205,13 @@ nav.navLinks{
     transform: translateX(30px);
   }
 
-.mainContent button{
+.mainContentHome button{
     width: 20%;
     position: relative;
-    bottom: 80px;
     padding: 7px;
+    margin-bottom: 30px;
     border: none;
+    bottom: 30px;
     box-shadow: 0px 0px 5px 0px rgb(8, 36, 46);
     font-size: 20px;
     border-radius: 5px;
@@ -178,3 +225,44 @@ nav.navLinks{
 }
 
 
+.dark .footer{
+  border-top: 1px solid rgba(95, 92, 92, 0.8)
+}
+.light .footer{
+    border-top: 1px solid rgba(48, 46, 46, 0.8)
+}
+
+
+.secondMainContent{
+    width: 100%;
+    user-select: none;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+.mainTxtSecond{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Acme', sans-serif !important;
+}
+.mainTxtSecond p{
+   width: 60%;
+   font-size: 30px;
+   position: relative;
+   left: 10%;
+}
+.mainImgSecond{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.mainImgSecond img{
+    border-radius: 20px;
+    width: 60%;
+    position: relative;
+    right: 10%;
+    height: 450px;
+}

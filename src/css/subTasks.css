@@ -1,0 +1,200 @@
+@media (max-width:600px){
+    .mainSubTasks{
+        height: 460px !important;
+        width: 100% !important;
+    }
+    .subTaskItem{
+        flex-direction: column !important;
+    }
+    .dark .subTaskItem{
+        border-bottom: 1px solid rgba(99, 97, 97, 0.8);
+    }
+    .boxBtnStatusSub{
+        margin-bottom: 10px;
+    }
+    .boxBtnUtils{
+        display: flex;
+        flex-direction: row;
+    }
+    .boxTxtSub{
+        min-width: 150px;
+        max-width: 300px;
+    }
+    .formContainerEdit{
+        min-width: 270px !important;
+    }
+    .overflowSubTasks{
+        min-height: 950px !important;
+    }
+    .boxDeleteSubTask{
+        min-width: 250px !important;
+    }
+    .msgErroSubTask{
+        font-size: 14px !important;
+    }
+}
+
+.mainSubTasks{
+    height: 400px; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: none;
+    box-shadow: 0px 0px 2px 0px rgba(27, 27, 27, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+.dark .mainSubTasks{
+    box-shadow: 0px 0px 2px 0px rgba(139, 139, 139, 0.8);
+}
+.listSubTasks{
+    height: 80%;
+    position: relative;
+    overflow-y: auto;
+}
+.overflowSubTasks{
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    z-index: 20;
+    background-color: rgba(27, 27, 27, 0.8);
+}
+.mainSubTasks form button{
+    border: none;
+    padding: 3px;
+    color: rgb(65, 63, 63);
+    
+}
+.boxInputSub{
+    position: relative;
+    width: 90%;
+    margin-top: 30px;
+}
+.boxInputSub input{
+   width: 100%;
+   border: none;
+   padding: 7px 35px 7px 7px;
+   box-shadow: 0px 0px 2px 0px rgba(27, 27, 27, 0.8);
+   border-radius: 5px;
+}
+.boxInputSub button{
+    position: absolute;
+    right: 0;
+    background-color: transparent !important;
+    bottom: 3px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.subTaskItem{
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 0px 2px 0px rgba(27, 27, 27, 0.8);
+    border: none;
+    min-height: 70px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.boxTxtSub{
+    padding: 15px;
+}
+.boxTxtSub p{
+    word-wrap: break-word;
+    white-space: normal;
+    margin-left: 5px;
+}
+.boxBtnUtils{
+    height: 100%;
+    position: relative;
+}
+.boxBtnUtils button{
+    margin: 10px;
+    border-radius: 3px;
+    border: none;
+}
+.boxBtnUtils button:focus{
+    outline: none;
+}
+.boxDeleteSubTask{
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background-color: aliceblue;
+    min-width: 370px;
+    height: auto;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.boxDeleteSubTask p{
+    margin-top: 10px;
+    width: 90%;
+    color: rgb(59, 57, 57) !important;
+}
+.boxBtnDelSubTask{
+    display: flex;
+}
+.boxBtnDelSubTask button{
+    margin: 20px !important;
+    padding: 7px;
+    width: 100px;
+}
+.formContainerEdit{
+    position: absolute;
+    padding: 20px;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    z-index: 30;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+.titleEditSubTask{
+    color: rgb(54, 53, 53) !important;
+    margin-left: 5px; 
+}
+.formContainerEdit form{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.formContainerEdit form button{
+    border-radius: 5px;
+    padding: 7px;
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+   
+    color: white;
+}
+.msgErroSubTask{
+    color: red !important;
+}
+.btnCloseEdit{
+    position: relative;
+    background-color: transparent;
+    border: none;
+}
+.btnCloseEdit:focus{
+    outline: none;
+}
+.btnStatusSub.btn-blocked {
+  border: 2px solid red;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transition: border 0.3s;
+}
+.boxBtnStatusSub{
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnStatusSub{
+    height: 40px;
+}

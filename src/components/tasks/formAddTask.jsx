@@ -1,64 +1,93 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import '../css/makeTask.css';
+import { motion, AnimatePresence } from "framer-motion"
+import { validarNome } from "../../utils/sanitizeDataTasks.js"
+import '../../css/formGroupTask.css';
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import { addTask } from "../../services/taskServices";
 
-export default function FormTarefas({ abrirMenu, fecharMenu }) {
+export default function FormTarefas({ abrirMenu, fecharMenu, onTarefaCriada }) {
+
+
   const [tempo, setTempo] = useState("");
   const [grupos, setGrupos] = useState([]);
   const [grupoSelecionado, setGrupoSelecionado] = useState("");
-
   const [nome, setNome] = useState('')
-  const [detalhes, setDetalhes] = useState('')
+  const [mensagem, setMensagem] = useState('')
+
+  function limparForm(){
+    setNome('')
+    setTempo('')
+    setGrupoSelecionado('')
+    setMensagem('')
+  }
+
 
   const HandleChange = (e) => {
     setTempo(e.target.value);
   };
 
 
+  const GET_DATA = import.meta.env.VITE_GETDATA_ROUTES
   useEffect(() => {
     const buscarGrupos = async () => {
       if(!abrirMenu) return
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_ROUTE_SERVER}/inputGrupos`,
+          `${GET_DATA}allGroups`,
           { withCredentials: true }
-        );
-        setGrupos(res.data);
+        )
+        setGrupos(res.data)
       } catch (err) {
-        console.error("Erro ao buscar grupos:", err);
+        console.error("Erro ao buscar grupos:", err)
       }
-    };
+    }
 
-    buscarGrupos();
-  }, [abrirMenu]);
+    buscarGrupos()
+  }, [abrirMenu])
+
+
+
+
 
   const handleSubmit = async (e)=>{
     e.preventDefault()
 
+    const nomeValidado = validarNome(nome)
+    if(!nomeValidado.isValid){
+      setMensagem(nomeValidado.error)
+      return
+    }
+    const nomeLimpo = nomeValidado.valor
+    const dataCadastro = new Date().toISOString()
+
     try{
-      const res = await axios.post(`${import.meta.env.VITE_ROUTE_SERVER}/api/criarTarefa`,{
-        nome,
-        tempo,
-        grupoId: grupoSelecionado,
-        detalhes
-      }, {withCredentials:true})
+      await addTask({nome: nomeLimpo, tempo, dataCadastro:dataCadastro, grupoId:grupoSelecionado})
 
       Swal.fire({
         title: 'Tarefa Adicionada!',
         icon: 'success',
         confirmButtonText: 'OK'
       })
+      
       setNome('')
-      setDetalhes('')
       setGrupoSelecionado('')
       setTempo('')
-      console.log('tarefa criada', res.data)
+      setMensagem('')
+      onTarefaCriada()
+    
     }catch(err){
-      console.error('erro ao criar tarefa', err)
+        const mensagemErro = err.response?.data?.message || 'Erro ao criar tarefa'
+        setMensagem(mensagemErro)
     }
   }
+
+
+
+
+
+
+
 
   return (
     <AnimatePresence>
@@ -69,14 +98,14 @@ export default function FormTarefas({ abrirMenu, fecharMenu }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 50 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          className={styles.formContainer}
+          className={'formContainer'}
         >
-          <form className='formTarefas' onSubmit={handleSubmit}>
+          <form className='formAdd' onSubmit={handleSubmit}>
             <button 
                 style={{height:'40px', fontSize: '24px', marginRight: '30px', marginBottom:'20px'}}
                 type="button" 
                 className={`btn btn-sm btn-close btn-danger ms-auto`} 
-                onClick={fecharMenu}>
+                onClick={()=> {fecharMenu(); limparForm();}}>
             </button>
             <input
               type="text"
@@ -87,7 +116,7 @@ export default function FormTarefas({ abrirMenu, fecharMenu }) {
               placeholder="Nome da Tarefa"
             />
             <div className={` boxInputTime`}>
-              <p>Data / Hora</p>
+              <p style={{color: 'rgb(82, 79, 79)'}}>Data / Hora</p>
               <input
                 type="datetime-local"
                 value={tempo}
@@ -102,22 +131,15 @@ export default function FormTarefas({ abrirMenu, fecharMenu }) {
               onChange={(e) => setGrupoSelecionado(e.target.value)}
               className={`formSelect`}
             >
-              <option value="">Selecione um Grupo</option>
+              <option value="">Grupo Geral</option>
               {grupos.map((grupo) => (
                 <option key={grupo._id} value={grupo._id}>
                   {grupo.nome}
                 </option>
               ))}
             </select>
-            <textarea
-              name="detalhes"
-              id="detalhes"
-              value={detalhes}
-              onChange={(e)=>setDetalhes(e.target.value)}
-              placeholder="Detalhes"
-            >
-            </textarea>
-            <button className={`btn btn-md btn-success mt-3`} type="submit">Criar Tarefa</button>
+            {mensagem && <span className="alert alert-danger msgErro" >{mensagem}</span>}
+            <button className={`btn btn-md btn-success mt-3`} style={{width: '50%'}} type="submit">Criar Tarefa</button>
           </form>
         </motion.div>
       )}

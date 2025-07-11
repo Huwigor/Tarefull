@@ -1,5 +1,14 @@
 @import url(https://fonts.bunny.net/css?family=acme:400|alegreya-sans:300);
 
+@media(max-width:600px){
+    .boxTxt{
+        width: 90% !important;
+    }
+    .typingTextStepTwo{
+        font-size: 2rem !important;
+    }
+}
+
 body{
     font-family: 'Alegreya Sans', sans-serif !important; 
     transition: background 0.3s ease, color 0.3s ease;

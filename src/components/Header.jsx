@@ -1,10 +1,10 @@
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import {useEffect, useState, useRef} from 'react'
 import axios from 'axios'
 import '../css/Home.css'
 import ThemeToggle from './themeToggle.jsx'
 import { useTheme } from './Theme.jsx'
-import { ChevronDown, UserRoundMinus} from 'lucide-react'
+import { ChevronDown, UserRoundMinus, AlignJustify, CopyPlus} from 'lucide-react'
 import logo from '../assets/icon-logo.png'
 
 
@@ -12,7 +12,8 @@ import logo from '../assets/icon-logo.png'
 export default function MainHeader(){
 
     const {theme} = useTheme()
-
+    const btnRef = useRef(null)
+    const menuRef = useRef(null)
     const [menuAberto, setMenuAberto] = useState(false)
     const [usuario, setUsuario] = useState(null)
 
@@ -21,15 +22,24 @@ export default function MainHeader(){
         setMenuAberto( prev => !prev)
     }
 
-    const btnRef = useRef(null)
-    const menuRef = useRef(null)
 
-    
+
+     const [menuMobileAberto, setMenuMobileAberto] = useState(false)    
+
+    function abrirMenuMobile(e){
+        e.preventDefault()
+        setMenuMobileAberto((prev)=>!prev)
+
+    }
+
+
+
+    const COOKIE_USER = import.meta.env.VITE_ROUTE_COOKIE_USER
     useEffect(() => {
 
         async function buscarSessao(){
             try{
-                const cookieUser = await axios.get(`${import.meta.env.VITE_ROUTE_SERVER}/api/cookieUser`, {withCredentials:true})
+                const cookieUser = await axios.get(`${COOKIE_USER}`, {withCredentials:true})
                 setUsuario(cookieUser.data)
             }catch(err){
                 console.error('usuario não autenticado', err)
@@ -50,12 +60,24 @@ export default function MainHeader(){
           document.removeEventListener('click', handleClickFora);
         };
       
-    }, []);
-    
+    }, [location.pathname]);
+
+
+
+
+
 
 
     function NavLogged() {
         return(
+            <>
+              <div className='mainBtnMenuHeader mx-auto'>
+                <button className='btnMenuHeader' onClick={abrirMenuMobile}><AlignJustify size={40}/></button>
+                <div className={`menuUser ${menuMobileAberto ? 'menuUserAberto' : ''}`}>
+                    <Link className={`linkUser`} style={{marginTop:'10px', marginLeft:'10px'}} to='/makeTask' > <CopyPlus style={{height:'20px', marginRight:'5px', marginTop:'3px'}}/> Criar Tarefas</Link>
+                    <Link className={`linkUser`} onClick={handleLogout} style={{marginBottom:'10px', marginTop:'10px'}}> <UserRoundMinus style={{height:'20px', marginRight:'5px', marginTop:'3px'}}/> Sair </Link>
+                </div>
+            </div>
             <nav className={` mx-auto ${theme} navLinks `}>
                 <Link className='linkNav' to='/makeTask' > Criar Tarefas</Link>
                 <div className={`mainUser`}>
@@ -65,26 +87,37 @@ export default function MainHeader(){
                    </div>
                 </div>
             </nav>
+            </>
         )
     }
 
     
     function NavNotLogged() {
         return(
-            <nav className={` mx-auto ${theme} navLinks`}>
-                <Link className='linkNav' to='/makeTask' > Criar Tarefas</Link>
-                <Link className='linkNav' to='/loginUser' >Entrar</Link>
-                <Link className='linkNav' to='/registerUser' > Cadastrar</Link>
-            </nav>
+            <>
+              <div className='mainBtnMenuHeader mx-auto'>
+                    <button className='btnMenuHeader' onClick={abrirMenuMobile}><AlignJustify size={40}/></button>
+                    <div className={`menuUser ${menuMobileAberto ? 'menuUserAberto' : ''}`}>
+                       <Link className='linkUser' style={{marginTop:'10px'}} to='/makeTask' > Criar Tarefas</Link>
+                       <Link className='linkUser' to='/loginUser' >Entrar</Link>
+                       <Link className='linkUser' style={{marginBottom:'10px'}} to='/registerUserStepOne' > Cadastrar</Link>
+                    </div>
+               </div>
+                <nav className={` mx-auto ${theme} navLinks`}>
+                    <Link className='linkNav' to='/makeTask' > Criar Tarefas</Link>
+                    <Link className='linkNav' to='/loginUser' >Entrar</Link>
+                    <Link className='linkNav' to='/registerUserStepOne' > Cadastrar</Link>
+                </nav>
+            </>
         )
     }
 
 
 
-
+   const SESSION_USER_ROUTES = import.meta.env.VITE_USER_SESSION_ROUTES
 
     function handleLogout() {
-        fetch(`${import.meta.env.VITE_ROUTE_SERVER}/api/logoutUser`, {
+        fetch(`${SESSION_USER_ROUTES}logout`, {
           method: "POST",
           credentials: "include",
         })
@@ -93,7 +126,7 @@ export default function MainHeader(){
             setMenuAberto(false);
           })
           .catch(err => console.error("Erro ao fazer logout:", err));
-      }
+    }
 
 
     return(

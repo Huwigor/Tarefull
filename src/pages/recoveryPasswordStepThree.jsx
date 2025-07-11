@@ -1,78 +1,38 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useNavigate, useParams } from 'react-router-dom';
 import HeaderAuth from '../components/headerAuth.jsx';
 import { CircleCheck, ShieldAlert, Lock, Eye, EyeOff } from 'lucide-react';
 import '../css/recoveryPasswordStepThree.css'
+import { userRecoveryStepThree } from '../services/userServices.js';
+import { validarSenha } from '../utils/sanitizeDataAuthUser.js';
 
 export default function ResetPassword() {
-    const { token } = useParams();
+
     const [loading, setLoading] = useState(false)
     const [showSenha, setShowSenha] = useState(false)
     const navigate = useNavigate()
-    const RESET_USER_PASSWORD = import.meta.env.VITE_ROUTE_FRONT_RESETPASSWORD
-
-
-    
-    
     const [password, setPassword] = useState('')
     const [passwordValid, setPasswordValid] = useState(null)
     const [passwordError, setPasswordError] = useState('')
+    const [msg, setMsg] = useState('')
     const [iconPasswordValid, setIconPasswordValid] = useState(false)
     const [iconPasswordInvalid, setIconPasswordInvalid] = useState(false)
-
-    const validarSenha = (password) => {
-      const hasUpperCase = /[A-Z]/.test(password);
-      const hasSymbol = /[^A-Za-z0-9]/.test(password);
-      const hasLength = password.length >= 8 && password.length <= 50;
-    
-      if (!hasLength) {
-        setPasswordValid(false)
-        setIconPasswordValid(false)
-        setIconPasswordInvalid(true) 
-        setPasswordError('A senha deve ter entre 8 a 50 caracteres! ')
-        return 
-      }
-      if (!hasUpperCase) {
-        setPasswordValid(false)
-        setIconPasswordValid(false)
-        setIconPasswordInvalid(true)
-        setPasswordError('A senha deve ter pelo menos uma letra maiúscula! ')
-        return 
-      }
-      if (!hasSymbol) {
-        setPasswordValid(false)
-        setIconPasswordValid(false)
-        setIconPasswordInvalid(true)
-        setPasswordError('A senha deve ter ao menos um símbolo! ')
-        return 
-      }
-
-      setPasswordValid(true)
-      setIconPasswordInvalid(false)
-      setIconPasswordValid(true)
-      setPasswordError('')
-      return
-
-    }
-
-
-
+    const {token} = useParams()
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true)
-
-        const isPasswordValid = passwordValid
-
-        if(!isPasswordValid){
+        const senhaValidada = validarSenha(password)
+        if(!senhaValidada.isValid){
           setLoading(false)
+          setMsg(senhaValidada.error)
           return
         }
+        const senhaLimpa = senhaValidada.valor
+        setLoading(true)
 
         try {
-            const response = await axios.post(`${RESET_USER_PASSWORD}/${token}`, { password });
+            await userRecoveryStepThree(token, senhaLimpa)
             setTimeout(()=>{
               setPasswordValid(false)
               setIconPasswordValid(false)
@@ -84,10 +44,11 @@ export default function ResetPassword() {
         } catch (err) {
             setTimeout(()=>{
               setLoading(false)
-              setPasswordError(err.response.data.message);
+              setMsg(err.response.data.message);
             }, 500)
         }
-    };
+    }
+
 
     const fullText = "Escolha uma nova senha!";
           const [typedText, setTypedText] = useState('');
@@ -125,7 +86,15 @@ export default function ResetPassword() {
                               placeholder="Nova senha"
                               value={password}
                               className={passwordValid === null ? '' : passwordValid ? 'input-success' : 'input-error'}
-                              onChange={(e) => {setPassword(e.target.value), validarSenha(password)}}
+                              onChange={(e) => {
+                                const valor = e.target.value
+                                setPassword(valor)
+                                const resultado = validarSenha(valor)
+                                setPasswordValid(resultado.isValid);
+                                setPasswordError(resultado.error);
+                                setIconPasswordValid(resultado.isValid);
+                                setIconPasswordInvalid(!resultado.isValid);
+                              }}
                           />
                            {showSenha ? (
                                 < EyeOff className={'iconEyeStepThree'} onClick={()=> setShowSenha(false)}/>
@@ -135,7 +104,7 @@ export default function ResetPassword() {
                           {passwordError && <p className='errorInputReset'>{passwordError}</p>}
                           {iconPasswordValid ? <CircleCheck className='iconCheck' /> : iconPasswordInvalid ? <ShieldAlert className='iconInvalid' /> : ''}
                       </div>
-                       
+                        {msg ? <p className=' mx-auto errorValidateRecoveryThree'>{msg}</p> : ''}
                         <button className='mx-auto' type="submit">Redefinir</button>
                     </form>
                 </div>

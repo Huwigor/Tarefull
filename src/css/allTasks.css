@@ -1,0 +1,42 @@
+@media(max-width:600px){
+    .mainAllTasks{
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
+
+.mainAllTasksHidden{
+    opacity: 0;
+}
+.mainAllTasks{
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+    border-radius: 10px;
+    font-family: 'Acme', sans-serif !important;
+    height: auto !important;
+    overflow: hidden !important;
+}
+.dark .mainAllTasks{
+    height: auto !important;
+}
+
+.light .mainAllTasks h2{
+    color: rgb(69, 71, 73);
+    font-size: 35px;
+}
+.dark .mainAllTasks h2{
+    color: rgb(160, 161, 161);
+    font-size: 35px;
+}
+
+.allTasks{
+    height: auto;
+    padding-bottom: 20px;
+}
+.titleAllTasks{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 20px !important;
+}

@@ -1,11 +1,18 @@
 import mongoose from 'mongoose'
 
 const MakeGrupo = mongoose.Schema({
+
     nome:{
         type:String,
         unique:true,
         required:true
     },
+
+    emailUser:{
+        type:String,
+        required:true
+    },
+
     criadoEm: {
        type:Date,
        default:Date.now

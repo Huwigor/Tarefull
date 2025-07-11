@@ -1,10 +1,9 @@
 import mongoose from 'mongoose';
 
 const emailQueueSchema = new mongoose.Schema({
-    to: { type: String, required: true },
-    templateData: { type: Object, required: true },
-    status: { type: String, default: 'pending' }, 
-    attempts: { type: Number, default: 0 },
+    email: { type: String, required: true },
+    tokenJwt: { type: String, required: true},
+    assunto:{type:String, required:true},
     lastAttempt: { type: Date }
 }, { timestamps: true });
 

@@ -1,0 +1,111 @@
+@media(max-width: 600px){
+  .formContainer{
+    min-width: 300px !important;
+    left: 0 !important;
+    z-index: 300 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .formAdd{
+    min-width: 90% !important;
+  }
+  .boxInputTime p{
+    right: 20% !important;
+ }
+ .titleForm{
+    right: 18% !important;
+ }
+ .msgErro{
+    font-size: 13px !important;
+ }
+}
+
+.formContainer {
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    width: 100%;
+    z-index: 10;
+    font-family: 'Acme', sans-serif !important; 
+}
+.titleForm{
+    color: black !important;
+    position: relative;
+    right: 25%;
+}
+.formAdd {
+    height: auto;
+    display: flex;
+    padding: 20px;
+    width: 40%;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    align-items: center;
+    background-color: rgb(218, 218, 218);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    gap: 10px;
+    padding-bottom: 50px;
+}
+.formAdd p{
+    margin-bottom: 0;
+    color: rgb(49, 47, 47) !important;
+}
+.formAdd input{
+    width: 80%;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+}
+.formAdd input:focus{
+    outline: none;
+}
+.formAdd input::placeholder{
+    color: rgb(20, 20, 20);
+}
+.msgErro{
+    font-size: 17px;
+    color: red !important;
+    margin-bottom: 0;
+}  
+.formSelect{
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+
+    margin-top: 20px;
+}
+.formSelect:focus{
+    outline: none;
+}
+.formTarefas textarea{
+    width: 80%;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+}
+.formTarefas textarea:focus{
+    outline: none;
+}
+.formTarefas textarea::placeholder{
+    color: rgb(14, 13, 13);
+}
+.boxInputTime{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.boxInputTime input{
+    width: 80%;
+}
+.boxInputTime p{
+    color: white;
+    margin-top: 20px;
+    position: relative;
+    right: 25%;
+}

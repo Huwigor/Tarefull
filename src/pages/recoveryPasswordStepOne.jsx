@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import '../css/recoveryPasswordStepOne.css'
 import HeaderAuth from '../components/headerAuth.jsx'
 import { CircleCheck, ShieldAlert, Mail } from 'lucide-react'
+import { validarEmail } from '../utils/sanitizeDataAuthUser.js'
+import { userRecoveryStepOne } from '../services/userServices.js'
 
 export default function RecoveryPasswordOne() {
      
@@ -16,61 +17,24 @@ export default function RecoveryPasswordOne() {
     const [emailError, setEmailError] = useState('')
 
 
-    const validarEmail = (email) => {
-        const trimmedEmail = email.trim();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      
-        if (trimmedEmail.length === 0) {
-          setEmailValid(false)
-          setIconEmailValid(false)
-          setIconEmailInvalid(true)
-          setEmailError('O email é obrigatório!')
-          return 
-        }
-        if (trimmedEmail.length > 254) {
-          setEmailValid(false)
-          setIconEmailValid(false)
-          setIconEmailInvalid(true)
-          setEmailError('O email deve ter no máximo 254 caracteres!')
-          return 
-        }
-        if (!emailRegex.test(trimmedEmail)) {
-          setEmailValid(false)
-          setIconEmailValid(false)
-          setIconEmailInvalid(true)
-          setEmailError('Formato de email inválido!')
-          return 
-        }
-        
-        setEmailValid(true)
-        setIconEmailInvalid(false)
-        setIconEmailValid(true)
-        setEmailError('')
-        return 
-      }
-      
-
-
-
 
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const [erroValidate, setErroValidate] = useState('')
-    const FORGOT_USER_PASSWORD = import.meta.env.VITE_ROUTE_FRONT_FORGOTPASSWORD
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setLoading(true)
-
-        const isEmailValid = emailValid
-
-        if(!isEmailValid){
+        const emailValidado = validarEmail(email)
+        if(!emailValidado.isValid){
           setLoading(false)
+          setErroValidate(emailValidado.error)
           return
         }
-
+        const emailLimpo = emailValidado.valor
+        setLoading(true)
+        
         try {
-            const response = await axios.post(`${FORGOT_USER_PASSWORD}`, { email })
+            await userRecoveryStepOne(emailLimpo)
             setTimeout(()=>{
               setEmailValid(null)
               setIconEmailValid(false)
@@ -123,7 +87,15 @@ export default function RecoveryPasswordOne() {
                                 placeholder="Digite seu email"
                                 value={email}
                                 className={emailValid === null ? '' : emailValid ? 'input-success' : 'input-error'}
-                                onChange={(e) => {setEmail(e.target.value), validarEmail(e.target.value)}}
+                                onChange={(e) => {
+                                  const valor = e.target.value
+                                  setEmail(valor)
+                                  const resultado = validarEmail(valor)
+                                  setEmailValid(resultado.isValid)
+                                  setEmailError(resultado.error)
+                                  setIconEmailValid(resultado.isValid)
+                                  setIconEmailInvalid(!resultado.isValid)
+                                }}
                             />
                             {emailError && <p className='errorInputForgot'>{emailError}</p>}
                             {iconEmailValid ? <CircleCheck className='iconCheck' /> : iconEmailInvalid ? <ShieldAlert className='iconInvalid' /> : ''}

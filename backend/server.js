@@ -58,7 +58,7 @@ const sessionMiddleware = session({
 
 
 app.use(cors({
-    origin: "https://tarefull.onrender.com/", 
+    origin: "https://tarefull.netlify.app", 
     credentials: true
 }))
 

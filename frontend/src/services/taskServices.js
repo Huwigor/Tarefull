@@ -1,10 +1,8 @@
 import axios from 'axios'
-import dotenv from 'dotenv'
 
-dotenv.config()
 
-const ROUTES_TASKS = process.env.TASKS_ROUTES
-const GET_DATA = process.env.GETDATA_ROUTES
+const ROUTES_TASKS = import.meta.env.VITE_TASKS_ROUTES
+const GET_DATA = import.meta.env.VITE_GETDATA_ROUTES
 
 
 export const TaskGet = async()=>{

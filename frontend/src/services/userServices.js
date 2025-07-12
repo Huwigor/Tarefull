@@ -1,11 +1,9 @@
 import axios from 'axios'
-import dotenv from 'dotenv'
 
-dotenv.config()
 
-const USER_SESSION_ROUTES = process.env.USER_SESSION_ROUTES
-const USER_RECOVERY_ROUTES = process.env.USER_RECOVERY_ROUTES
-const USER_REGISTER_ROUTES = process.env.USER_REGISTER_ROUTES
+const USER_SESSION_ROUTES = import.meta.env.VITE_USER_SESSION_ROUTES
+const USER_RECOVERY_ROUTES = import.meta.env.VITE_USER_RECOVERY_ROUTES
+const USER_REGISTER_ROUTES = import.meta.env.VITE_USER_REGISTER_ROUTES
 
 
 export const loginUser = async({email, senha})=>{

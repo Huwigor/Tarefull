@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
 import '../../css/allGroups.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Trash2, Edit} from "lucide-react"

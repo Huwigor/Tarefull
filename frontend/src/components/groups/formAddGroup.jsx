@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState} from "react"
 import { validarNome } from "../../utils/sanitizeDataGroups.js";
 import { motion, AnimatePresence } from "framer-motion"
 import '../../css/formGroupTask.css';

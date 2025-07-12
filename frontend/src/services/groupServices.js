@@ -1,9 +1,7 @@
 import axios from 'axios'
-import dotenv from 'dotenv'
 
-dotenv.config()
 
-const GROUP_SERVICES = process.env.GROUP_ROUTES
+const GROUP_SERVICES = import.meta.env.VITE_GROUP_ROUTES
 
 export const getGrupo = async()=>{
     const res = await axios.get(`${GROUP_SERVICES}allGroups`, {withCredentials:true})

@@ -1,9 +1,7 @@
 import axios from 'axios'
-import dotenv from 'dotenv'
 
-dotenv.config()
 
-const ROUTES_SUBTASK = process.env.SUBTASK_ROUTES
+const ROUTES_SUBTASK = import.meta.env.VITE_SUBTASK_ROUTES
 
 export const getSubTask = async ({tarefaId})=>{
     const res = await axios.get(

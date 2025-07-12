@@ -101,7 +101,7 @@ app.get(/^(?!\/api).*/, (req, res) => {
 
 
 
-const PORT = process.env.PORT_SERVER
+const PORT = process.env.PORT || 5000
 server.listen(PORT, ()=> {
     console.log('servidor rodando!')
 })

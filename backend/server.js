@@ -9,6 +9,8 @@ import mongoDB from './src/config/db.js'
 import './src/config/passportConfig.js'
 import path from "path";
 import MongoStore from "connect-mongo";
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 
 /* USER ROUTES */
@@ -38,6 +40,10 @@ dotenv.config()
 mongoDB()
 
 const app = express()
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 const server = http.createServer(app);
 
 

@@ -188,7 +188,7 @@
 
 .mainRowStepOne{
     width: 100%;
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -202,14 +202,14 @@
 }
 .rowStepOne{
     height: 2px;
-    width: 20px;
+    width: 50px;
     background-color: #707174;
     margin: 5px;
 }
 
 .mainGoogleStepOne{
     min-width: 100%;
-    bottom: 40px;
+    bottom: 10px;
     display: flex;
     position: relative;
     align-items: center;
@@ -219,12 +219,13 @@
     text-decoration: none;
     background-color: transparent;
     border: 1px solid lightslategray;
-    padding: 10px 10px 10px 10px ;
+    padding: 5px 10px 5px 5px ;
     border-radius: 50px;
-    min-width: 270px;
+    width: 90% !important;
  }
 .iconGoogleStepOne{
-    height: 30px;
+    min-height: 20px;
+    min-width: 20px;
 }
 .spanTxtGoogleStepOne{
     position: relative;

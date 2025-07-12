@@ -163,7 +163,6 @@ const fullText = "Já possui uma conta? Faça o login e comece a organizar suas 
 
               <div className={` d-flex mainRowStepOne`} styles={{width:'100%'}}>
                   <div className={`rowStepOne`}></div>
-                  <p>Ou</p>
                   <div className={`rowStepOne`}></div>
               </div>
 

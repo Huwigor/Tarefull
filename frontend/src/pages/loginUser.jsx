@@ -175,7 +175,6 @@ const UserLogin = ()=> {
 
               <div className={` d-flex mainRow`} styles={{width:'100%'}}>
                 <div className={`row`}></div>
-                <p>Ou</p>
                 <div className={`row`}></div>
               </div>
 

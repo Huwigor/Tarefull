@@ -9,7 +9,6 @@ import mongoDB from './src/config/db.js'
 import './src/config/passportConfig.js'
 import path from "path";
 import MongoStore from "connect-mongo";
-import path from 'path'
 import { fileURLToPath } from 'url'
 
 

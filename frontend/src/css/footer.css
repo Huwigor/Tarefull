@@ -1,0 +1,26 @@
+@media(max-width: 600px){
+    .boxIconFooter img{
+     max-height: 70px !important;
+}
+}
+
+.footer{
+    margin-top: 200px !important;
+    border-radius: 10px !important;
+}
+.boxIconFooter img{
+    height: 100px !important;
+    margin-bottom: 50px;
+}
+.dark .linkGithub{
+    color: lightgray;
+}
+.light .linkGithub{
+    color: rgb(15, 15, 15);
+}
+.dark .linkLinkedin{
+    color: lightgray;
+}
+.light .linkLinkedin{
+    color: rgb(15, 15, 15);
+}

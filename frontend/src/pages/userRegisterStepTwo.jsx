@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import '../css/userRegisterStepTwo.css'
-import HeaderAuth from '../../components/headerAuth.jsx'
+import HeaderAuth from '../components/headerAuth.jsx'
 
 
 export default function UserRegisterTwo(){

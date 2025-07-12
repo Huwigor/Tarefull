@@ -8,7 +8,7 @@ import cookieParser from 'cookie-parser'
 import mongoDB from './src/config/db.js'
 import './src/config/passportConfig.js'
 import path from "path";
-import { fileURLToPath } from "url";
+import MongoStore from "connect-mongo";
 
 
 /* USER ROUTES */
@@ -38,23 +38,22 @@ dotenv.config()
 mongoDB()
 
 const app = express()
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-
 const server = http.createServer(app);
 
 
 const sessionMiddleware = session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        secure: process.env.NODE_ENV === "production",
-        maxAge: 1000 * 60 * 60 * 24 * 30
-    }
-})
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URL, 
+    dbName: "tarefull" 
+  }),
+  cookie: {
+    secure: process.env.NODE_ENV === "production",
+    maxAge: 1000 * 60 * 60 * 24 * 30
+  }
+});
 
 
 app.use(cors({
@@ -93,11 +92,6 @@ app.use('/api/userRegister/', UserRegister)
 
 app.use("/auth", authGoogleRoutes);
 app.use('/api/cookieUser', cookieUser)
-
-
-app.get(/^(?!\/api).*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
 
 
 

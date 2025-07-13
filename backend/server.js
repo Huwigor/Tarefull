@@ -51,8 +51,7 @@ const sessionMiddleware = session({
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    mongoUrl: process.env.MONGO_URL, 
-    dbName: "tarefull" 
+    mongoUrl: process.env.MONGO_URL
   }),
   cookie: {
     secure: process.env.NODE_ENV === "production",
@@ -97,6 +96,10 @@ app.use('/api/userRegister/', UserRegister)
 
 app.use("/auth", authGoogleRoutes);
 app.use('/api/cookieUser', cookieUser)
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
+})
 
 
 

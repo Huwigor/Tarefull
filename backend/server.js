@@ -97,10 +97,11 @@ app.use('/api/userRegister/', UserRegister)
 app.use("/auth", authGoogleRoutes);
 app.use('/api/cookieUser', cookieUser)
 
-
-app.get('*', (req, res) => {
+app.get('*', (req, res, next) => {
   if (!req.path.startsWith('/api') && !req.path.startsWith('/auth')) {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  } else {
+    next();
   }
 });
 

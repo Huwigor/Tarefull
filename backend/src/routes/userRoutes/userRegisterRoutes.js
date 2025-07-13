@@ -1,7 +1,7 @@
 import express from 'express'
 import { validarEmail, validarNome, validarSenha } from '../../utils/sanitizeDataAuthUser.js'
 import EmailQueue from '../../models/emailQueueModel.js'
-import EnviarEmail from '../../email/funSendEmailForgotPassword.js'
+import EnviarEmail from '../../email/funSendUserRegisterEmail.js'
 import { gerarToken } from '../../utils/gerarTokenJwt.js'
 import User from '../../models/userModel.js'
 import bcrypt from 'bcryptjs'
@@ -81,7 +81,7 @@ UserRegister.post('/registerStepOne', async(req, res)=>{
        }
       
         const URL_FRONT = process.env.FRONT_URL
-        const linkCadastro = `${URL_FRONT}/registerUserStepThree/${tokenAtual}`;
+        const linkCadastro = `${URL_FRONT}registerUserStepThree/${tokenAtual}`;
 
         await EnviarEmail(emailLimpo, linkCadastro);
         

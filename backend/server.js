@@ -10,6 +10,8 @@ import './src/config/passportConfig.js'
 import path from "path";
 import MongoStore from "connect-mongo";
 import { fileURLToPath } from 'url'
+import dns from "dns";
+import https from "https";
 
 
 /* USER ROUTES */
@@ -37,6 +39,18 @@ import SubTaskRoutes from './src/routes/subTasksRoutes.js';
 
 dotenv.config()
 mongoDB()
+
+function showPublicIP() {
+  https.get("https://api.ipify.org", (res) => {
+    let data = "";
+    res.on("data", (chunk) => { data += chunk; });
+    res.on("end", () => { console.log("IP público do Render:", data); });
+  }).on("error", (err) => {
+    console.error("Erro ao obter IP público:", err.message);
+  });
+}
+
+showPublicIP();
 
 const app = express()
 

@@ -44,8 +44,6 @@ const sessionMiddleware = session({
   }
 });
 
-console.log('node env do render', process.env.NODE_ENV)
-
 app.use(cors({
     origin: "https://tarefull.netlify.app", 
     credentials: true
@@ -56,19 +54,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 
-
 app.use(sessionMiddleware)
 app.use(passport.initialize())
 app.use(passport.session())
-
-
-app.use(express.static(path.join(__dirname, "dist")));
 
 app.use('/api/getData/', GetData)
 app.use('/api/group/', GroupRoutes)
 app.use('/api/subTask/', SubTaskRoutes)
 app.use('/api/task/', TasksRoutes )
-
 
 app.use('/api/userSession/', UserSession)
 app.use('/api/userRecovery/', UserRecovery)

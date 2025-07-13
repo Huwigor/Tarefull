@@ -59,7 +59,7 @@ UserSession.post('/login', async(req, res)=>{
         res.cookie("sessao_usuario", encrypted, {
             httpOnly: true, 
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'Strict' ,
+            sameSite: 'None' ,
             maxAge: 1000 * 60 * 60 * 24 * 30
         })
         

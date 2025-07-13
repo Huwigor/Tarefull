@@ -81,7 +81,7 @@ UserRegister.post('/registerStepOne', async(req, res)=>{
        }
       
         const URL_FRONT = process.env.FRONT_URL
-        const linkCadastro = `${URL_FRONT}registerUserStepThree/${tokenAtual}`;
+        const linkCadastro = `${URL_FRONT}/registerUserStepThree/${tokenAtual}`;
 
         await EnviarEmail(emailLimpo, linkCadastro);
         

@@ -29,9 +29,10 @@ router.get("/google/callback",
     ).toString();
 
     res.cookie("sessao_usuario", encrypted, {
-      maxAge: 1000 * 60 * 60 * 24 * 30, 
-      httpOnly: true,
-      secure: false
+      httpOnly: true, 
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'None' ,
+      maxAge: 1000 * 60 * 60 * 24 * 30
     });
 
     res.redirect(`${process.env.FRONT_URL}`);

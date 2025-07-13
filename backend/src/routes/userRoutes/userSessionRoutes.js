@@ -78,9 +78,10 @@ UserSession.post('/logout', authMiddleware, async(req, res)=>{
     try{
 
         res.clearCookie("sessao_usuario", {
-        httpOnly: true,
-        sameSite: "lax",
-        secure: false,
+            httpOnly: true, 
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'None' ,
+            maxAge: 1000 * 60 * 60 * 24 * 30
         });
 
         res.status(200).json({ mensagem: "Sessão encerrada com sucesso" });

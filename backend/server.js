@@ -58,6 +58,7 @@ const sessionMiddleware = session({
   }
 });
 
+console.log('node env do render', process.env.NODE_ENV)
 
 app.use(cors({
     origin: "https://tarefull.netlify.app", 

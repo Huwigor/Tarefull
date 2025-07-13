@@ -1,10 +1,11 @@
 import axios from 'axios'
 
 
+const DATA_GROUP = import.meta.env.VITE_GETDATA_ROUTES
 const GROUP_SERVICES = import.meta.env.VITE_GROUP_ROUTES
 
 export const getGrupo = async()=>{
-    const res = await axios.get(`${GROUP_SERVICES}allGroups`, {withCredentials:true})
+    const res = await axios.get(`${DATA_GROUP}allGroups`, {withCredentials:true})
     return res.data
 }
 

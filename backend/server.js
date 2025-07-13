@@ -7,7 +7,6 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import mongoDB from './src/config/db.js'
 import './src/config/passportConfig.js'
-import path from "path";
 import MongoStore from "connect-mongo";
 
 

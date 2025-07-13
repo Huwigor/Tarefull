@@ -97,7 +97,7 @@ app.use('/api/userRegister/', UserRegister)
 app.use("/auth", authGoogleRoutes);
 app.use('/api/cookieUser', cookieUser)
 
-app.get('*', (req, res) => {
+app.get('/^(?!\/api', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
 })
 

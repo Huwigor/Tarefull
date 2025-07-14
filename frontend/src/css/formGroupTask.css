@@ -26,6 +26,7 @@
     top: 20%;
     left: 30%;
     width: 100%;
+    z-index: 300 !important;
     z-index: 10;
     font-family: 'Acme', sans-serif !important; 
 }

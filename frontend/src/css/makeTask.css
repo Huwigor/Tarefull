@@ -1,4 +1,42 @@
-@media (max-width: 600px){
+@media(max-width: 300px){
+   .header img{
+    margin-left: -10px !important;
+  }
+  .mainBtnMenuHeader{
+    display: block !important;
+    position: relative;
+    right: 13%;
+    top: 0 !important;
+  }
+  .navLinks{
+    display: none !important;
+  }
+  .mainMenuOptionShow{
+    width: 100% !important;
+  }
+  .menuOptions{
+    margin-top: 50px;
+    margin-left: 0px !important;
+  }
+  .btnMenuAll{
+    height: 30px !important;
+  }
+  .btnMenuOpen{
+    height: 30px !important;
+  }
+  .btnMenu{
+    font-size:  14px !important;
+  }
+   .menuGrupo button{
+    font-size: 13px !important;
+  }
+  .menuGrupoOpen button{
+    font-size: 13px !important;
+  }
+   
+}
+
+@media (min-width: 301px) and  (max-width: 600px){
   .header img{
     margin-left: -10px !important;
   }
@@ -11,15 +49,18 @@
   .navLinks{
     display: none !important;
   }
-  .mainMenu{
-   
-  }
   .mainMenuOptionShow{
-    min-width: 100% !important;
+    width: 100% !important;
   }
   .menuOptions{
     margin-top: 50px;
     margin-left: 0px !important;
+  }
+  .menuGrupoOpen{
+    font-size: 13px !important;
+  }
+  .menuGrupoOpen button{
+    font-size: 13px !important;
   }
 
 

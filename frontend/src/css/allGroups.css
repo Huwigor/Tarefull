@@ -1,4 +1,22 @@
-@media(max-width:600px){
+@media(max-width:300px){
+    .mainDeleteGroup{
+        left: 0 !important;
+        width: 95%;
+    }
+    .msgErroGrupo{
+        font-size: 13px !important;
+    }
+    .titleGroups{
+        font-size: 15px !important;
+    }
+    .tituloGrupo{
+        font-size: 20px !important;
+        position: relative;
+        top: 7px !important;
+    }
+
+}
+@media(min-width:301px) and (max-width:600px){
     .mainDeleteGroup{
         left: 0 !important;
         width: 95%;

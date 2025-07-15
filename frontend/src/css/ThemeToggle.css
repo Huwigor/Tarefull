@@ -1,3 +1,22 @@
+@media(max-width:300px){
+  .theme-toggle-wrapper{
+     top: 20px !important;
+  }
+  .toggle{
+    width: 50px !important;
+    height: 25px !important;
+  }
+  .slider{
+    left: 0 !important;
+    top: 0 !important;
+  }
+  .icon{
+    height: 15px !important;
+    width: 15px !important;
+  }
+}
+
+
 .theme-toggle-wrapper {
   display: flex;
   align-items: center;

@@ -95,7 +95,7 @@ export default function AllGroups(atualizarGrupo, atualizarTarefa) {
                           <div className="mainInfoGroup">
                             <div className="d-flex boxInfoGrupo">
                               <h3 className="tituloGrupo">{grupo.nome}</h3>
-                              <button className="btnEditGroup" onClick={()=> {setBoxEditGroup(true); setGrupoRef(grupo);}}><Edit/></button>
+                              <button className="btnEditGroup" onClick={()=> {setBoxEditGroup(true); setGrupoRef(grupo);}}><Edit className="iconEdit"/></button>
                             </div>
                             {boxEditGroup && grupoRef && grupoRef._id === grupo._id && (     
                                 <EditGroup 

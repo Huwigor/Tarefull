@@ -1,4 +1,4 @@
-import { useState} from "react"
+import { useState } from "react"
 import { validarNome } from "../../utils/sanitizeDataGroups.js";
 import { motion, AnimatePresence } from "framer-motion"
 import '../../css/formGroupTask.css';
@@ -7,7 +7,6 @@ import Swal from 'sweetalert2'
 
 export default function FormGrupo({ openFormGrupo, fecharFormGrupo, onGrupoCriado }) {
 
-
   const [nomeGrupo, setNomeGrupo] = useState('')
   const [mensagem, setMensagem]= useState('')
 
@@ -15,8 +14,6 @@ export default function FormGrupo({ openFormGrupo, fecharFormGrupo, onGrupoCriad
     setNomeGrupo('')
     setMensagem('')
   }
-
-
 
   const criarGrupo = async (e) =>{
     e.preventDefault()
@@ -82,7 +79,7 @@ export default function FormGrupo({ openFormGrupo, fecharFormGrupo, onGrupoCriad
              {mensagem && <span className="alert alert-danger mx-auto msgErro" >{mensagem}</span>}
             <button 
               className={`btn btn-md btn-success mt-3`}
-              style={{width: '50%'}} 
+           
               type="submit"
             > 
               Criar Grupo

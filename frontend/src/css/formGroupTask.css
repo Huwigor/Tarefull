@@ -1,6 +1,8 @@
+
+
 @media(max-width: 600px){
   .formContainer{
-    min-width: 300px !important;
+    min-width: 100% !important;
     left: 0 !important;
     z-index: 300 !important;
     display: flex;

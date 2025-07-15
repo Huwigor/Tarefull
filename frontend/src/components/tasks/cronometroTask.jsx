@@ -65,11 +65,11 @@ export default function CountdownTimer({ targetDate, dataAtual }) {
     setTimeLeft({ days, hours, minutes, seconds });
   };
 
-  if (timeLeft.expired) return <p>Tempo esgotado</p>;
+  if (timeLeft.expired) return <p className='titleFinish'>Tempo esgotado</p>;
 
   return (
     <div style={{ position: 'relative', top: '30px' }}>
-      <p>
+      <p className='titleProgress'>
         {timeLeft.days > 0 && `${timeLeft.days} dia${timeLeft.days > 1 ? 's' : ''}, `}
         {String(timeLeft.hours).padStart(2, '0')} hrs -{' '}
         {String(timeLeft.minutes).padStart(2, '0')} min -{' '}

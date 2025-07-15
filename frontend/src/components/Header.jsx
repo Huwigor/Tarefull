@@ -23,16 +23,12 @@ export default function MainHeader(){
     }
 
 
-
-     const [menuMobileAberto, setMenuMobileAberto] = useState(false)    
-
+    const [menuMobileAberto, setMenuMobileAberto] = useState(false)    
     function abrirMenuMobile(e){
         e.preventDefault()
         setMenuMobileAberto((prev)=>!prev)
 
     }
-
-
 
     const COOKIE_USER = import.meta.env.VITE_ROUTE_COOKIE_USER
     useEffect(() => {
@@ -63,19 +59,14 @@ export default function MainHeader(){
     }, [location.pathname]);
 
 
-
-
-
-
-
     function NavLogged() {
         return(
             <>
               <div className='mainBtnMenuHeader mx-auto'>
-                <button className='btnMenuHeader' onClick={abrirMenuMobile}><AlignJustify size={40}/></button>
+                <button className='btnMenuHeader' onClick={abrirMenuMobile}><AlignJustify size={35}/></button>
                 <div className={`menuUser ${menuMobileAberto ? 'menuUserAberto' : ''}`}>
-                    <Link className={`linkUser`} style={{marginTop:'10px', marginLeft:'10px'}} to='/makeTask' > <CopyPlus style={{height:'20px', marginRight:'5px', marginTop:'3px'}}/> Criar Tarefas</Link>
-                    <Link className={`linkUser`} onClick={handleLogout} style={{marginBottom:'10px', marginTop:'10px'}}> <UserRoundMinus style={{height:'20px', marginRight:'5px', marginTop:'3px'}}/> Sair </Link>
+                    <Link className={`linkUser`} style={{marginTop:'10px', marginLeft:'10px'}} to='/makeTask' > <CopyPlus style={{height:'15px', marginRight:'5px', marginTop:'3px'}}/> Criar Tarefas</Link>
+                    <Link className={`linkUser`} onClick={handleLogout} style={{marginBottom:'10px', marginTop:'10px'}}> <UserRoundMinus style={{height:'15px', marginRight:'5px', marginTop:'3px'}}/> Sair </Link>
                 </div>
             </div>
             <nav className={` mx-auto ${theme} navLinks `}>

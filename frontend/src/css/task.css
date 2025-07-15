@@ -6,8 +6,20 @@
    .boxInfoTarefa{
      max-height: 50% !important;
    }
+  
+   .iconTrash{
+     height: 20px !important;
+     position: relative;
+     bottom: 2px;
+   }
    .menuTarefa{
      padding-left: 0;
+   }
+   .titleFinish{
+    font-size: 13px !important;
+   }
+   .titleProgress{
+    font-size: 13px !important;
    }
 
 }
@@ -20,6 +32,12 @@
     height: auto;
     width: 90%;
     position: relative;
+}
+.titleFinish{
+    font-size: 15px;
+}
+.titleProgress{
+    font-size: 15px;
 }
 .dark .maintarefa{
     box-shadow: 0px 0px 2px 0px rgba(139, 139, 139, 0.8);

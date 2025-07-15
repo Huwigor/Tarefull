@@ -1,4 +1,53 @@
-@media (max-width:600px){
+@media(max-width:300px){
+
+    .mainSubTasks{
+        height: 460px !important;
+        width: 100% !important;
+    }
+    .subTaskItem{
+        flex-direction: column !important;
+    }
+    .dark .subTaskItem{
+        border-bottom: 1px solid rgba(99, 97, 97, 0.8);
+    }
+    .boxBtnStatusSub{
+        margin-bottom: 10px;
+    }
+    .boxBtnUtils{
+        display: flex;
+        flex-direction: row;
+    }
+    .iconEdit{
+        height: 20px;
+        position: relative;
+        bottom: 2px;
+    }
+    .boxTxtSub{
+        min-width: 150px;
+        max-width: 300px;
+    }
+    .boxTxtSub p{
+        font-size: 13px;
+    }
+    .formContainerEdit{
+        min-width: 270px !important;
+    }
+    .overflowSubTasks{
+        min-height: 950px !important;
+    }
+    .boxDeleteSubTask{
+        min-width: 250px !important;
+    }
+    .msgErroSubTask{
+        font-size: 14px !important;
+    }
+    .btnStatusSub{
+        font-size: 13px !important;
+    }
+
+}
+
+@media (min-width:301px) and  (max-width:600px){
     .mainSubTasks{
         height: 460px !important;
         width: 100% !important;
@@ -44,6 +93,7 @@
     padding: 10px;
     border-radius: 5px;
 }
+
 .dark .mainSubTasks{
     box-shadow: 0px 0px 2px 0px rgba(139, 139, 139, 0.8);
 }

@@ -111,9 +111,9 @@ export default function MakeTask(){
           <div className='mainMenu'>
           {mainMenuOpen 
             ? 
-              (<button className={mainMenuOpen ? 'btnMenuOpen' : 'btnMenuAll'} onClick={abrirMainMenu}><ArrowLeftToLine size={30}/></button>) 
+              (<button className={mainMenuOpen ? 'btnMenuOpen' : 'btnMenuAll'} onClick={abrirMainMenu}><ArrowLeftToLine size={20}/></button>) 
             : 
-              (<button className={mainMenuOpen ? 'btnMenuOpen' : 'btnMenuAll'} onClick={abrirMainMenu}><ArrowRightFromLine size={30}/></button>)
+              (<button className={mainMenuOpen ? 'btnMenuOpen' : 'btnMenuAll'} onClick={abrirMainMenu}><ArrowRightFromLine size={20}/></button>)
           }
           
           <main className={mainMenuOpen ? 'mainMenuOptionShow' : 'mainMenuOptionHidden'}>

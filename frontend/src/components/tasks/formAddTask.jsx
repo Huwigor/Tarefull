@@ -8,7 +8,6 @@ import { addTask } from "../../services/taskServices";
 
 export default function FormTarefas({ abrirMenu, fecharMenu, onTarefaCriada }) {
 
-
   const [tempo, setTempo] = useState("");
   const [grupos, setGrupos] = useState([]);
   const [grupoSelecionado, setGrupoSelecionado] = useState("");
@@ -48,8 +47,6 @@ export default function FormTarefas({ abrirMenu, fecharMenu, onTarefaCriada }) {
 
 
 
-
-
   const handleSubmit = async (e)=>{
     e.preventDefault()
 
@@ -81,12 +78,6 @@ export default function FormTarefas({ abrirMenu, fecharMenu, onTarefaCriada }) {
         setMensagem(mensagemErro)
     }
   }
-
-
-
-
-
-
 
 
   return (
@@ -139,7 +130,7 @@ export default function FormTarefas({ abrirMenu, fecharMenu, onTarefaCriada }) {
               ))}
             </select>
             {mensagem && <span className="alert alert-danger msgErro" >{mensagem}</span>}
-            <button className={`btn btn-md btn-success mt-3`} style={{width: '50%'}} type="submit">Criar Tarefa</button>
+            <button className={`btn btn-md btn-success mt-3`} type="submit">Criar Tarefa</button>
           </form>
         </motion.div>
       )}

@@ -9,7 +9,7 @@ import mongoDB from './src/config/db.js'
 import './src/config/passportConfig.js'
 import MongoStore from "connect-mongo";
 
-
+import KeepAlive from './src/routes/pingKeepAlive.js'
 import cookieUser from './src/routes/userRoutes/cookieUserRoute.js'
 import authGoogleRoutes from './src/routes/userRoutes/googleRegisterRoute.js'
 
@@ -56,6 +56,8 @@ app.use(cookieParser())
 app.use(sessionMiddleware)
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use('/api/keepAlive', KeepAlive)
 
 app.use('/api/getData/', GetData)
 app.use('/api/group/', GroupRoutes)

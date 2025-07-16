@@ -8,8 +8,6 @@ import cookieParser from 'cookie-parser'
 import mongoDB from './src/config/db.js'
 import './src/config/passportConfig.js'
 import MongoStore from "connect-mongo";
-import path from "path";
-import { fileURLToPath } from "url";
 
 
 import cookieUser from './src/routes/userRoutes/cookieUserRoute.js'
@@ -29,8 +27,6 @@ dotenv.config()
 mongoDB()
 
 const app = express()
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const server = http.createServer(app);
 
 
@@ -61,8 +57,6 @@ app.use(sessionMiddleware)
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(express.static(path.join(__dirname, "dist")));
-
 app.use('/api/getData/', GetData)
 app.use('/api/group/', GroupRoutes)
 app.use('/api/subTask/', SubTaskRoutes)
@@ -74,10 +68,6 @@ app.use('/api/userRegister/', UserRegister)
 
 app.use("/auth", authGoogleRoutes);
 app.use('/api/cookieUser', cookieUser)
-
-app.get(/^(?!\/api).*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
 
 
 const PORT = process.env.PORT || 5000

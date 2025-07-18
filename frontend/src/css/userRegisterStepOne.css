@@ -67,6 +67,11 @@
         margin-top: 20px !important;
         margin-bottom: 50px !important;
     }
+    .loading p{
+        font-size: 12px !important;
+    
+    }
+   
 
 }
 

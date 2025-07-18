@@ -95,6 +95,13 @@
     .cursor{
         display: none !important;
     }
+    .loadingLogin p{
+        font-size: 13px !important;
+    }
+    .loading-spinner{
+        height: 40px !important;
+        width: 40px !important;
+    }
 
 }
 

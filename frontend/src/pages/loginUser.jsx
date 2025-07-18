@@ -45,7 +45,7 @@ const UserLogin = ()=> {
       const timeout = setTimeout(() => {
         setTypedText(prev => prev + fullText.charAt(index));
         setIndex(prev => prev + 1);
-      }, 1);
+      }, 15);
       return () => clearTimeout(timeout);
     } else {
       setShowButton(true);

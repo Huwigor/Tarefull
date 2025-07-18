@@ -1,4 +1,104 @@
-@media(max-width: 600px){
+@media(max-width:400px){
+    .iconHeader{
+        right: 5%;
+        height: 70px !important;
+        width: 70px !important;
+        bottom: 20px !important;
+    }
+    .mainRegistro{
+        flex-direction: column !important;
+    }
+    .mainRegistro form{
+        min-width: 90% !important;
+        margin-top: 0px !important;
+    }
+    .boxInput{
+        margin-top: 30px !important;
+        width: 100% !important;
+    }
+    .boxInput input{
+        width: 100%;
+        padding: 5px 35px !important;
+        font-size: 13px !important;
+    }
+    .iconEye{
+        top: 5px !important;
+        right: 10px !important;
+        height: 20px !important;
+    }
+    .iconMail{
+        height: 20px !important;
+        top: 5px !important;
+    }
+    .linkRecuperar{
+        font-size: 13px !important;
+    }
+    .errorInput{
+        top: 110% !important;
+        font-size: 11px !important;
+    }
+    .iconInvalid{
+        height: 15px !important;
+        left: 99% !important;
+    }
+    .errorMsg{
+        text-align: center;
+        padding: 7px !important;
+        width: 80% !important;
+        font-size: 12px !important;
+    }
+    .iconAlert{
+        margin-left: 0 !important;
+        height: 15px;
+        bottom: 3px !important;
+    }
+    .btnEntrar{
+        font-size: 13px !important;
+        width: 70% !important;
+        padding: 5px !important;
+    }
+    .mainRow{
+        margin-top: 20px !important;
+    }
+    .row{
+        height: 1px !important;
+        width: 30px !important;
+    }
+    .mainGoogle{
+        margin-top: 10px !important;
+    }
+    .btnGoogle{
+        font-size: 13px !important;
+        padding: 5px 10px 5px 5px !important;
+    }
+    .iconGoogle{
+        height: 25px !important;
+    }
+    .mainTxt{
+        margin-top: 0px !important;
+        bottom: 20px !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 190px !important;
+        margin-bottom: 30px !important;
+    }
+    .typingText{
+        font-size: 0.9rem !important;
+        min-width: 50% !important;
+        text-align: center !important;
+    }
+    .fadeInBtn{
+        bottom: 70px !important;
+        width: 50% !important;
+        font-size: 13px !important;
+    }
+    .cursor{
+        display: none !important;
+    }
+
+}
+
+@media(min-width: 401px) and (max-width: 600px){
     .iconHeader{
         right: 5%;
     }
@@ -21,7 +121,7 @@
         height: 20px;
     }
     .mainTxt{
-        margin-top: 80px;
+        margin-top: 70px;
         left: 0 !important;
         width: 100% !important;
     }
@@ -269,6 +369,9 @@ to {
     bottom: 5px;
     margin-right: 3px;
 }
+.linkRecuperar{
+    font-size: 15px;
+}
 .dark .linkRecuperar{
     color: rgb(184, 174, 174);
 }
@@ -291,41 +394,41 @@ to {
     border-radius: 5px;
     transition: background-color 0.5s ease-in-out;
 }
-
+.btnEntrar{
+    font-size: 15px;
+}
 .mainRow{
     width: 100%;
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
 
 }
-
 .row{
     height: 2px;
     width: 50px;
-    background-color: #474849;
+    background-color: #707174;
     margin: 5px !important;
 }
 
 .mainGoogle{
     min-width: 100% !important;
     display: flex;
-    margin-top: 20px;
+    margin-top: 30px;
     position: relative;
     align-items: center;
     justify-content: center;
 }
 .btnGoogle{
+    text-decoration: none;
     background-color: transparent;
     border: 1px solid lightslategray;
-    padding: 5px 20px 5px 10px ;
+    padding: 5px 10px 5px 5px;
     border-radius: 50px;
 }
 .iconGoogle{
-    min-height: 20px !important;
-    min-width: 20px !important;
-    
+    height: 30px;
 }
 .spanTxtGoogle{
     position: relative;

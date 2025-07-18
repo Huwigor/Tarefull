@@ -5,14 +5,17 @@ import '../../css/formGroupTask.css';
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { addTask } from "../../services/taskServices";
+import Select from 'react-select';
 
 export default function FormTarefas({ abrirMenu, fecharMenu, onTarefaCriada }) {
+
 
   const [tempo, setTempo] = useState("");
   const [grupos, setGrupos] = useState([]);
   const [grupoSelecionado, setGrupoSelecionado] = useState("");
   const [nome, setNome] = useState('')
   const [mensagem, setMensagem] = useState('')
+  const maxLength = 100
 
   function limparForm(){
     setNome('')
@@ -44,6 +47,8 @@ export default function FormTarefas({ abrirMenu, fecharMenu, onTarefaCriada }) {
 
     buscarGrupos()
   }, [abrirMenu])
+
+
 
 
 
@@ -80,6 +85,12 @@ export default function FormTarefas({ abrirMenu, fecharMenu, onTarefaCriada }) {
   }
 
 
+
+
+
+
+
+
   return (
     <AnimatePresence>
       {abrirMenu && (
@@ -93,44 +104,89 @@ export default function FormTarefas({ abrirMenu, fecharMenu, onTarefaCriada }) {
         >
           <form className='formAdd' onSubmit={handleSubmit}>
             <button 
-                style={{height:'40px', fontSize: '24px', marginRight: '30px', marginBottom:'20px'}}
+                style={{height:'40px', fontSize: '20px', marginRight: '30px', marginBottom:'20px'}}
                 type="button" 
                 className={`btn btn-sm btn-close btn-danger ms-auto`} 
                 onClick={()=> {fecharMenu(); limparForm();}}>
             </button>
-            <input
+            <textarea
               type="text"
               name="nome"
               value={nome}
-              onChange={(e)=>setNome(e.target.value)}
+              onChange={(e)=> {
+                  if(e.target.value.length <= maxLength){
+                      setNome(e.target.value)
+                  }
+              }}
               id="nome"
               placeholder="Nome da Tarefa"
             />
-            <div className={` boxInputTime`}>
-              <p style={{color: 'rgb(82, 79, 79)'}}>Data / Hora</p>
+            <div
+                className="char-counter ms-auto"
+                style={{
+                    fontSize: '0.75rem',
+                    textAlign: 'right',
+                    marginRight: '10%',
+                    color: nome.length >= 100 ? 'red' : '#666',
+                }}
+            >
+                {nome.length} / {maxLength}
+            </div>
+            <div className={`boxInputTime`}>
+              <p style={{color: 'rgb(82, 79, 79)'}}>Data para Conclusão</p>
               <input
                 type="datetime-local"
                 value={tempo}
+                className="mx-auto"
                 name="tempo"
                 id="tempo"
                 onChange={HandleChange}
                 step="1"
               />
             </div>
-            <select
-              value={grupoSelecionado}
-              onChange={(e) => setGrupoSelecionado(e.target.value)}
-              className={`formSelect`}
+            <div 
+              style={{width: '80%', marginTop:'20px'}}
             >
-              <option value="">Grupo Geral</option>
-              {grupos.map((grupo) => (
-                <option key={grupo._id} value={grupo._id}>
-                  {grupo.nome}
-                </option>
-              ))}
-            </select>
+                <Select
+                  options={[
+                    { value: "", label: "Grupo Geral" },
+                    ...grupos.map(grupo => ({
+                      value: grupo._id,
+                      label: grupo.nome
+                    }))
+                  ]}
+                  value={[{ value: "", label: "Grupo Geral" }, ...grupos.map(grupo => ({
+                    value: grupo._id,
+                    label: grupo.nome
+                  }))].find(option => option.value === grupoSelecionado)}
+                  onChange={(option) => setGrupoSelecionado(option.value)}
+                  classNamePrefix="react-select"
+                  styles={{
+                    control: (base) => ({
+                      ...base,
+                      minHeight: '36px',
+                      fontSize: '14px',
+                      borderRadius: '5px',
+                      maxWidth: '100%'
+                    }),
+                    option: (base, state) => ({
+                      ...base,
+                      backgroundColor: state.isFocused ? '#f0f0f0' : 'white',
+                      color: '#333',
+                      maxWidth: '100%',
+                      overflowWrap:'break-word'
+                    }),
+                    menu: (base) => ({
+                      ...base,
+                      zIndex: 100,
+                      width: '100%',
+                    }),
+                  }}
+                  isDisabled={grupos.length === 0}
+                />
+            </div>
             {mensagem && <span className="alert alert-danger msgErro" >{mensagem}</span>}
-            <button className={`btn btn-md btn-success mt-3`} type="submit">Criar Tarefa</button>
+            <button className={`btn btn-md btn-success mt-3 btnEntrar`} type="submit">Criar Tarefa</button>
           </form>
         </motion.div>
       )}

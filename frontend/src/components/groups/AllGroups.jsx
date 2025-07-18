@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import axios from "axios"
 import '../../css/allGroups.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Trash2, Edit} from "lucide-react"
@@ -75,7 +76,6 @@ export default function AllGroups(atualizarGrupo, atualizarTarefa) {
           ? (<p style={{marginTop: '20px', marginLeft: '20px'}}>Não há grupos criados!</p>) 
           : (
             <>
-              <h2 className="titleGroups" style={{marginTop:'30px', marginLeft:'20px', marginBottom:'20px'}}>{tituloGrupo}</h2>
                   {gruposFiltrados.map((grupo, index) => (
                     <div
                         key={grupo._id}
@@ -91,11 +91,15 @@ export default function AllGroups(atualizarGrupo, atualizarTarefa) {
                           />
                       
                         )}
+                        <div style={{minWidth: '100%'}} className="boxBtnDeleteGroup">
+                           <button className=" ms-auto btnDeleteGroup" onClick={()=> {setBoxDeleteGroup(true); setGrupoRef(grupo);}}><Trash2 className="iconTrash"/></button>
+                        </div>
                         <div className="d-flex">
+                          
                           <div className="mainInfoGroup">
                             <div className="d-flex boxInfoGrupo">
-                              <h3 className="tituloGrupo">{grupo.nome}</h3>
                               <button className="btnEditGroup" onClick={()=> {setBoxEditGroup(true); setGrupoRef(grupo);}}><Edit className="iconEdit"/></button>
+                              <h3 className="tituloGrupo">{grupo.nome}</h3>
                             </div>
                             {boxEditGroup && grupoRef && grupoRef._id === grupo._id && (     
                                 <EditGroup 
@@ -107,10 +111,10 @@ export default function AllGroups(atualizarGrupo, atualizarTarefa) {
                             )}
         
                           </div>
-                            <button className="ms-auto btn btn-sm btn-danger btnDeleteGroup" onClick={()=> {setBoxDeleteGroup(true); setGrupoRef(grupo);}}><Trash2/></button>
+                           
                         </div>
                       {grupo.tarefas.length === 0 ? (
-                          <p style={{marginTop: '20px', marginLeft: '20px'}}>O grupo {grupo.nome} não possui tarefas criadas!</p>
+                          <p className="infoTasksCriadas" style={{marginTop: '20px', marginLeft: '20px'}}>O grupo <span style={{color: 'green'}}>{grupo.nome}</span> não possui tarefas criadas!</p>
                         ) : (
                           <div className="taskGroup">
                             {grupo.tarefas.map((tarefa) => (

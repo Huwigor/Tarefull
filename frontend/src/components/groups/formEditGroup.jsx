@@ -9,6 +9,7 @@ export default function EditGroup({grupoEditado, grupoId, nomeGrupo, fecharFormE
 
     const [mensagem, setMensagem] = useState('')
     const [nome, setNome] = useState( nomeGrupo || '' )
+    const maxLength = 50
 
 
     const editGrupo = async ()=>{
@@ -56,8 +57,26 @@ export default function EditGroup({grupoEditado, grupoId, nomeGrupo, fecharFormE
                 name="grupo" 
                 id="grupo"
                 value={nome}
-                onChange={(e) => setNome(e.target.value)}  
+                onChange={(e) => 
+                    { 
+                      if(e.target.value.length <= 50){
+                         setNome(e.target.value)  
+                      }
+                    }
+                }  
             /> 
+            <div
+                className="char-counter ms-auto"
+                style={{
+                    fontSize: '0.75rem',
+                    textAlign: 'right',
+                    marginBottom: '5px',
+                    marginRight: '10%',
+                    color: nome.length >= maxLength ? 'red' : '#666',
+                }}
+            >
+                {nome.length} / {maxLength}
+            </div>
 
                 {mensagem 
                 ? (

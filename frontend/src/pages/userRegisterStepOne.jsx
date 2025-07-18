@@ -5,7 +5,6 @@ import HeaderAuth from '../components/headerAuth.jsx'
 import { UserLock, Lock, CircleCheck, ShieldAlert } from 'lucide-react';
 import { validarNome, validarEmail } from '../utils/sanitizeDataAuthUser.js';
 import { userRegisterStepOne } from '../services/userServices.js';
-import iconGoogle from '../assets/iconGoogle.png'
 
 export default function UserRegisterStepOne(){
   
@@ -160,16 +159,17 @@ const fullText = "Já possui uma conta? Faça o login e comece a organizar suas 
 
               {response ? <p  className='alert alert-danger errorValidateRecoveryOne'>{response}</p> : ''}
 
-              <button className='btn btn-md btn-dark' type='submit'>Cadastrar</button>
+              <button className='btn btn-md btn-dark btnEntrar' type='submit'>Cadastrar</button>
 
               <div className={` d-flex mainRowStepOne`} styles={{width:'100%'}}>
                   <div className={`rowStepOne`}></div>
+                  <p>Ou</p>
                   <div className={`rowStepOne`}></div>
               </div>
 
               <div className={` mainGoogleStepOne`}>
                   <button type='button' className={'btnGoogleStepOne'} onClick={() => window.location.href = USER_AUTH_GOOGLE}>
-                      <img className={'iconGoogleStepOne'} src={iconGoogle} alt="" /><span className='spanTxtGoogleStepOne'>Cadastre-se com o Google</span>
+                      <img className={'iconGoogleStepOne'} src="imagens/icon-google.png" alt="" /><span className='spanTxtGoogleStepOne'>Cadastre-se com o Google</span>
                   </button>
               </div>
           </form>

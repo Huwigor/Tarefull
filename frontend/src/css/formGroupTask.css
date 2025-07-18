@@ -11,9 +11,10 @@
   }
   .formAdd{
     min-width: 90% !important;
+    font-size: 13px !important;
   }
   .boxInputTime p{
-    right: 20% !important;
+    font-size: 12px !important;
  }
  .titleForm{
     right: 18% !important;
@@ -24,8 +25,8 @@
 }
 
 .formContainer {
-    position: fixed;
-    top: 20%;
+    position: absolute;
+    top: 30%;
     left: 30%;
     width: 100%;
     z-index: 300 !important;
@@ -55,6 +56,18 @@
 .formAdd p{
     margin-bottom: 0;
     color: rgb(49, 47, 47) !important;
+}
+.formAdd textarea{
+    width: 80%;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+}
+.formAdd textarea:focus{
+    outline: none;
+}
+.formAdd textarea::placeholder{
+    color: rgb(20, 20, 20);
 }
 .formAdd input{
     width: 80%;
@@ -101,14 +114,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+   
 }
 .boxInputTime input{
     width: 80%;
 }
 .boxInputTime p{
     color: white;
-    margin-top: 20px;
     position: relative;
-    right: 25%;
+    left: 10%;
+    margin-bottom: 5px;
 }

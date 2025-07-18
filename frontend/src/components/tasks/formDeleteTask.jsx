@@ -36,14 +36,12 @@ export default function DeleteTask({taskData, fecharBoxDelete, tarefaDeletada}){
             style={{
             position: 'absolute',
             top: '10%',
-            left: '3%',
             background: 'white',
             border: '1px solid #ccc',
             borderRadius: '8px',
             padding: '10px',
             zIndex: 999,
             boxShadow: '0px 4px 12px rgba(0,0,0,0.15)',
-            minWidth: '300px'
             }}
         >
             <p className="text-center mb-2" style={{color:'black', width:'100%'}}>Deseja realmente excluir a tarefa <br /> <b>{dataTask.nome}</b> ?</p>

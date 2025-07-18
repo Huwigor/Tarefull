@@ -152,7 +152,7 @@ export default function UserRegisterThree(){
 
                 {message? <p className='alert alert-danger errorValidateRecoveryOne'>{message}</p> : ''}
 
-                 <button onClick={(e)=> {e.preventDefault(); handleSubmit();}} className='btn btn-md btn-dark' type='submit'>Criar Conta</button>
+                 <button onClick={(e)=> {e.preventDefault(); handleSubmit();}} className='btn btn-md btn-dark btnEntrar' type='submit'>Criar Conta</button>
             </div>
             <div className='mainTxtStepThree'>
                 <p className='typingTextStepThree'>{typedText}<span className='cursorStepThree'>|</span></p>

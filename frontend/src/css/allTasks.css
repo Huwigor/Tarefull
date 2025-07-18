@@ -1,13 +1,13 @@
-@media(max-width:300px){
+@media(max-width:400px){
     .mainSelectGroup{
         font-size: 13px !important;
     }
     .titleAllTasks{
-        font-size: 15px !important;
+        font-size: 12px !important;
     }
 }
 
-@media(max-width:600px){
+@media(min-width: 401px) and (max-width:600px){
     .mainAllTasks{
         padding: 0 !important;
         overflow: hidden !important;
@@ -47,5 +47,7 @@
     margin-top: 20px;
     margin-left: 20px;
     margin-bottom: 20px;
-    font-size: 20px;
+    max-width: 50%;
+    overflow-wrap: break-word;
+    font-size: 15px;
 }

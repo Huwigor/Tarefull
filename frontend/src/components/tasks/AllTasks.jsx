@@ -2,10 +2,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Tasks from "./tasks";
 import '../../css/allTasks.css'
-import { TaskGet } from '../../services/taskServices';
-
-
-
+import { TaskGet } from '../../services/taskServices'
+import SelectAll from './selectTask';
 
 
 export default function TodasTarefas({atualizarTarefa}) {
@@ -14,7 +12,6 @@ export default function TodasTarefas({atualizarTarefa}) {
   const [tarefas, setTarefas] = useState([]);
   const [classe, setClasse] = useState('mainAllTasksHidden')
   const [tarefaSelecionada, setTarefaSelecionada] = useState('allgroups')
-
 
 
     const fetchData = async ()=>{
@@ -40,44 +37,30 @@ export default function TodasTarefas({atualizarTarefa}) {
       return qtdB - qtdA;
     });
 
-    const tarefasFiltradas = tarefaSelecionada === "allgroups"
-    ? tarefasOrdenadas
-    : tarefasOrdenadas.filter((t) => t._id === tarefaSelecionada);
+     const tarefasFiltradas = tarefaSelecionada === "allgroups"
+     ? tarefasOrdenadas
+     : tarefasOrdenadas.filter((t) => t._id === tarefaSelecionada);
 
-
-
-    let tituloTarefa = "Todas as Tarefas";
-    if (tarefaSelecionada !== "allgroups") {
-      const tarefaEscolhida = tarefas.find(t => t._id === tarefaSelecionada);
-      if (tarefaEscolhida) {
-        tituloTarefa = 'Tarefa ' + tarefaEscolhida.nome;
-      }
-    }
+    const tituloTarefa = tarefaSelecionada === 'allgroups'
+      ? 'Todas as Tarefas'
+      : 'Tarefa: ' + tarefasFiltradas[0]?.nome || '';
 
 
 
   return (
 
-    <>
-      <div className="mainSelectGroup">
-          <select 
-              name="grupos" 
-              id="grupos"
-              disabled={tarefasFiltradas.length === 0}
-              value={tarefaSelecionada}
-              onChange={(e)=>setTarefaSelecionada(e.target.value)}
-          >
-              <option value='allgroups'>Todos as Tarefas</option>
-              {tarefas.map((tarefa)=>(
-                <option key={tarefa._id} value={tarefa._id}>{tarefa.nome}</option>
-              ))}
-            </select>
-        </div>
       <div className={classe}>
+        <div className="mainSelectGroup">
+            <SelectAll 
+              tarefasOrdenadas={tarefasOrdenadas}
+              tarefaSelecionada={tarefaSelecionada}
+              setTarefaSelecionada={setTarefaSelecionada}
+            />
+          </div>
         {tarefasFiltradas.length === 0 
           ? (<p style={{marginTop: '20px', marginLeft: '20px'}}>Não há tarefas criadas!</p>)
           : (<>
-              <h2 className='titleAllTasks'>{tituloTarefa}</h2>
+          
               <div className='allTasks'>
                 {tarefasFiltradas.map((tarefa) => (
                 <motion.div
@@ -96,9 +79,8 @@ export default function TodasTarefas({atualizarTarefa}) {
                   ))}
               </div>
             </>)
-      }
+        }
       </div>
-    </>
     
   );
 }

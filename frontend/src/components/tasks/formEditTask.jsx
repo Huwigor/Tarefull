@@ -6,6 +6,7 @@ import { TaskEdit } from "../../services/taskServices.js"
 
 export default function EditTask({taskData, fecharboxEdit, tarefaEditada}){
 
+    const maxLength = 100
 
     const[mensagem, setMensagem] = useState('')
     const [taskEdit, setTaskEdit] = useState({
@@ -57,16 +58,33 @@ export default function EditTask({taskData, fecharboxEdit, tarefaEditada}){
         >
             <button onClick={()=> {fecharboxEdit(); setMensagem('');}} className="btnFecharEdit ms-auto"><X/></button>
             <p>Nome da Tarefa</p>
-            <input 
+            <textarea 
                 type="text" 
                 id="nome" 
                 name="nome" 
                 value={taskEdit.nome}
-                onChange={(e)=> setTaskEdit({
-                ...taskEdit,
-                nome: e.target.value,
-                })}
+                onChange={(e)=> {
+                    const novoNome = e.target.value
+                    if(novoNome.length <= 100){
+                        setTaskEdit({
+                            ...taskEdit,
+                            nome: novoNome,
+                        })
+                    }
+               }}
             />
+             <div
+                className="char-counter ms-auto"
+                style={{
+                    fontSize: '0.75rem',
+                    textAlign: 'right',
+                    marginBottom: '5px',
+                    marginRight: '10%',
+                    color: taskEdit.nome.length >= 100 ? 'red' : '#666',
+                }}
+            >
+                {taskEdit.nome.length} / {maxLength}
+            </div>
             <p>Encerramento da Tarefa</p>
             <input 
                 type="datetime-local"
@@ -89,7 +107,7 @@ export default function EditTask({taskData, fecharboxEdit, tarefaEditada}){
                     </span>
                 
                 ) : ''}
-            <button className="btnSubmitEdit mx-auto btn btn-md btn-success" onClick={()=> editarTarefa()}>Editar</button>
+            <button className="btnSubmitEdit mx-auto btn btn-md btn-success" onClick={()=> editarTarefa()}>Alterar</button>
         </motion.div>
     )
 }

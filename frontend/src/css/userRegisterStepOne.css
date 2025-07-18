@@ -1,6 +1,76 @@
 @import url(https://fonts.bunny.net/css?family=acme:400);
 
-@media(max-width:600px){
+@media(max-width: 400px){
+    .iconHeader{
+        margin-left: 0px !important;
+    }
+    .mainRegisterStepOne{
+        flex-direction: column !important;
+    }
+    .mainRegisterStepOne form{
+        width: 100% !important;
+        margin-top: 0 !important;
+    }
+    .boxInputStepOne{
+        width: 100% !important;
+    }
+    .boxInputStepOne input{
+        max-width: 100% !important;
+        padding: 5px 35px !important;
+        font-size: 13px !important;
+    }
+    .iconUserStepOne{
+        height: 15px !important;
+    }
+    .msg-error{
+        font-size: 11px !important;
+    }
+    .errorValidateRecoveryOne{
+        font-size: 12px !important;
+        padding: 5px !important;
+        margin-bottom: 0 !important;
+    }
+    .mainGoogleStepOne{
+        max-width: 100% !important;
+    }
+    .btnGoogleStepOne{
+        padding: 5px 10px 5px 5px !important;
+        min-width: 85% !important;
+        font-size: 12px !important;
+    }
+    .iconGoogleStepOne{
+        height: 25px !important;
+    }
+    .mainRowStepOne p{
+        font-size: 11px !important;
+    }
+
+
+
+    .mainTxtStepOne{
+        margin-top: 0px !important;
+        bottom: 20px !important;
+        height: auto !important;
+        width: 100% !important;
+        left: 0 !important;
+    }
+    .mainTxtStepOne p{
+        font-size: 0.9rem !important;
+    }
+    .cursorStepOne{
+        display: none !important;
+    }
+    .fadeInBtnStepOne{
+        bottom: 20px !important;
+        width: 60% !important;
+        font-size: 13px !important;
+        margin-top: 20px !important;
+        margin-bottom: 50px !important;
+    }
+
+}
+
+@media(min-width: 401px) and (max-width:600px){
   .iconHeader{
     margin-left: 0px !important;
   }
@@ -120,7 +190,7 @@
     border: 1px solid #9f9fa1;
     background-color: #c6c7c9;
     position: relative;
-    padding: 7px 40px !important;
+    padding: 7px 40px;
     transition: box-shadow 0.3s ease-in-out;
 }
 .boxInputStepOne input:focus{
@@ -188,7 +258,7 @@
 
 .mainRowStepOne{
     width: 100%;
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -202,14 +272,14 @@
 }
 .rowStepOne{
     height: 2px;
-    width: 50px;
+    width: 20px;
     background-color: #707174;
     margin: 5px;
 }
 
 .mainGoogleStepOne{
     min-width: 100%;
-    bottom: 10px;
+    bottom: 40px;
     display: flex;
     position: relative;
     align-items: center;
@@ -219,13 +289,12 @@
     text-decoration: none;
     background-color: transparent;
     border: 1px solid lightslategray;
-    padding: 5px 10px 5px 5px ;
+    padding: 10px 10px 10px 10px ;
     border-radius: 50px;
-    width: 90% !important;
+    min-width: 270px;
  }
 .iconGoogleStepOne{
-    min-height: 20px;
-    min-width: 20px;
+    height: 30px;
 }
 .spanTxtGoogleStepOne{
     position: relative;

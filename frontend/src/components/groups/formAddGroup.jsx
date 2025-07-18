@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { validarNome } from "../../utils/sanitizeDataGroups.js";
 import { motion, AnimatePresence } from "framer-motion"
 import '../../css/formGroupTask.css';
@@ -7,13 +7,17 @@ import Swal from 'sweetalert2'
 
 export default function FormGrupo({ openFormGrupo, fecharFormGrupo, onGrupoCriado }) {
 
+
   const [nomeGrupo, setNomeGrupo] = useState('')
   const [mensagem, setMensagem]= useState('')
+  const maxLength = 50
 
   function limparForm(){
     setNomeGrupo('')
     setMensagem('')
   }
+
+
 
   const criarGrupo = async (e) =>{
     e.preventDefault()
@@ -68,17 +72,33 @@ export default function FormGrupo({ openFormGrupo, fecharFormGrupo, onGrupoCriad
                 className={`btn btn-sm btn-close ms-auto`} 
                 onClick={()=> {fecharFormGrupo(); limparForm();}}>
             </button>
-            <p className="titleForm">Nome do Grupo</p>
-            <input
+            <textarea
               type="text"
+              placeholder="nome do Grupo"
               name="nome"
               id="nome"
               value={nomeGrupo}
-              onChange={(e)=> setNomeGrupo(e.target.value)}
+              onChange={(e)=> { 
+                if(e.target.value.length <= 50){
+                   setNomeGrupo(e.target.value)
+                }
+              } 
+              }
             />
+            <div
+                className="char-counter ms-auto"
+                style={{
+                    fontSize: '0.75rem',
+                    textAlign: 'right',
+                    marginRight: '10%',
+                    color: nomeGrupo.length >= maxLength ? 'red' : '#666',
+                }}
+            >
+                {nomeGrupo.length} / {maxLength}
+            </div>
              {mensagem && <span className="alert alert-danger mx-auto msgErro" >{mensagem}</span>}
             <button 
-              className={`btn btn-md btn-success mt-3`}
+              className={`btn btn-md btn-success mt-3 btnEntrar`}
            
               type="submit"
             > 

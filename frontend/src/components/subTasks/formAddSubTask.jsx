@@ -6,6 +6,7 @@ import { addSubTask } from "../../services/subTaskServices.js";
 export default function AddSubTask({tarefaId, subTarefas, subTarefaAdicionada}){
 
     const [subTask, setSubTask] = useState('')
+    const maxLength = 500
 
     const [dataSub, setDataSub] = useState(() => {
         if(tarefaId){
@@ -39,11 +40,26 @@ export default function AddSubTask({tarefaId, subTarefas, subTarefaAdicionada}){
     return(
         <form action="" onSubmit={handleSubmit}>
             <div className='boxInputSub mx-auto'>
+                <div
+                    className="char-counter"
+                    style={{
+                        fontSize: '0.75rem',
+                        textAlign: 'right',
+                        marginBottom: '5px',
+                        color: subTask.length >= maxLength ? 'red' : '#666',
+                    }}
+                >
+                    {subTask.length} / {maxLength}
+                </div>
                 <input 
                     type="text"
                     name="subtask"
                     value={subTask}
-                    onChange={(e)=> setSubTask(e.target.value)}
+                    onChange={(e)=> { 
+                        if (e.target.value.length <= 500){
+                            setSubTask(e.target.value)
+                        }
+                    }}
                     id="subtask"
                     placeholder="Sub-Tarefas.."  
                 />
@@ -52,7 +68,7 @@ export default function AddSubTask({tarefaId, subTarefas, subTarefaAdicionada}){
                     disabled={subTarefas.length >= 5}
                     className={subTarefas.length >= 5 ? 'btn-disabled' : ''}
                 >
-                    <SendHorizontal/>
+                    <SendHorizontal className="iconSendSubTask"/>
                 </button>
             </div>
         </form>

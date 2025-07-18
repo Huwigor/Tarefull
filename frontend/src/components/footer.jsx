@@ -1,6 +1,5 @@
 import logo from '../assets/icon-logo.png'
 import { Github, Linkedin } from 'lucide-react'
-import '../css/footer.css'
 
 export default function Footer(){
 
@@ -9,10 +8,14 @@ export default function Footer(){
 
     return(
         <div 
-            className='footer'   
+            className='footer'
+            style={{
+                marginTop:'200px', 
+                borderRadius:'10px'
+            }}
+            
         >
             <div 
-                className='boxIconFooter'
                 style={{
                     width:'100%', 
                     display:'flex', 
@@ -26,7 +29,7 @@ export default function Footer(){
             <div className='d-flex'>
                 <p 
                   style={{
-                    fontSize:'12px',
+                    fontSize:'10px',
                     marginLeft:'5px'
                   }}>
                   Desenvolvido por Huwigor Neterio
@@ -39,24 +42,24 @@ export default function Footer(){
                     }}
                 >
                     <a 
-                        className='linkGithub'
                         href={hrefGithub}
                         target='_blank'
                         style={{
                             backgroundColor:'transparent', 
                             border:'none', 
+                            color:'white',
                             marginLeft:'5px'
                         }}
                     >
                         <Github size={20}/>
                     </a>
                     <a 
-                       className='linkLinkedin'
                        href={hrefLinkedin}
                        target='_blank'
                        style={{
                             backgroundColor:'transparent', 
                             border:'none', 
+                            color:'white',
                             marginLeft:'10px'
                         }}
                     >

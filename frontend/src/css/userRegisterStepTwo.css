@@ -1,6 +1,20 @@
 @import url(https://fonts.bunny.net/css?family=acme:400|alegreya-sans:300);
 
-@media(max-width:600px){
+@media(max-width:400px){
+    .boxTxt{
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        padding: 10px;
+        justify-content: center;
+    }
+    .typingTextStepTwo{
+        width: 90% !important;
+        font-size: 1rem !important;
+    }
+}
+
+@media(min-width:401px) and (max-width:600px){
     .boxTxt{
         width: 90% !important;
     }

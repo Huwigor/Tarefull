@@ -1,28 +1,114 @@
-@media (max-width: 760px){
-   .mainTarefa{
-     height: auto !important;
-   
+@media (max-width: 750px){
+    .mainTarefa{
+        height: auto !important;
+        display: block !important;
+    
+    }
+    .contentTask{
+        display: block !important;
+        padding: 5px !important;
+    }
+    .boxInfoTask{
+        width: 100% !important;
+        display: flex;
+        flex-direction: row;
+    }
+   .nomeTarefa{
+        font-size: 12px !important;
+        width: 70% !important;
+        overflow-wrap: break-word;
+   }
+   .btnEditTarefa{
+        height: 15px !important;
+        position: relative;
+        left: 5px;
+        margin-right: 15px;
+   }
+   .iconEditTask{
+     height: 20px !important;
+   }
+   .btnExcluirTarefa{
+        bottom: 35px !important;
+   }
+   .iconTrash{
+        height: 20px !important;
    }
    .boxInfoTarefa{
-     max-height: 50% !important;
+        max-height: 50% !important;
+        width: 100% !important;
+        right: 0 !important;
    }
   
    .iconTrash{
-     height: 20px !important;
-     position: relative;
-     bottom: 2px;
+        height: 20px !important;
+        position: relative;
+        bottom: 2px;
    }
    .menuTarefa{
-     padding-left: 0;
+        padding-left: 0;
+        width: 100% !important;
    }
    .titleFinish{
-    font-size: 13px !important;
+        font-size: 13px !important;
    }
    .titleProgress{
-    font-size: 13px !important;
+        font-size: 11px !important;
+   }
+   .boxConfirmDelete{
+      width: 100% !important;
+   }
+   .boxConfirmDelete p{
+        font-size: 13px !important;
+   }
+   .boxConfirmDelete button{
+        min-width: 80px !important;
+        font-size: 11px !important;
+        padding: 5px !important;
+        margin: 5px !important;
+   }
+   .btnExcluirTarefa{
+     
+     right: 20px !important;
+   }
+   .boxEditTarefa{
+        font-size: 13px !important;
+    }
+    .boxEditTarefa p{
+        font-size: 13px !important;
+    }
+    .boxEditTarefa textarea{
+        width: 100% !important;
+    }
+    .boxEditTarefa input{
+        width: 100% !important;
+    }
+    .btnSubmitEdit{
+        font-size: 13px !important;
+    }
+
+}
+
+@media(min-width: 751px) and (max-width:1075px){
+
+    .boxInfoTarefa{
+        width: 300px !important;
+    }
+     .nomeTarefa{
+        font-size: 14px !important;
+        width: 70% !important;
+        overflow-wrap: break-word;
+   }
+    .boxConfirmDelete p{
+        font-size: 13px !important;
+        width: 80% !important;
+         overflow-wrap: break-word;
    }
 
 }
+
+
+
+
 
 .maintarefa{
     box-shadow: 0px 0px 2px 0px rgba(27, 27, 27, 0.8);
@@ -56,16 +142,19 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 60%;
 }
 .contentTask{
     background-color: transparent;
     height: auto;
+    display: flex;
+    position: relative;
 }
 .row{
     margin-left: 5px !important;
 }
 .boxInfoTarefa{
-    height: 80%;
+    width: 400px;
     height: 300px;
     position: relative;
     right: 10px;
@@ -74,6 +163,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.boxInfoTask{
+    display: flex;
+    position: relative;
+    width: 80%;
+}
+.nomeTarefa{
+    font-size: 14px;
+    width: 80%;
+    overflow-wrap: break-word;
 }
 .light .nomeTarefa{
     color: rgb(22, 22, 22) !important;
@@ -84,6 +183,8 @@
 .boxConfirmDelete{
     position: absolute;
     display: flex;
+    width: 350px;
+    overflow-wrap: break-word;
     flex-direction: column;
     align-items: center;
 }
@@ -93,9 +194,18 @@
     color: rgb(63, 60, 60) !important;
 }
 .btnExcluirTarefa{
-    margin-right: 30px;
-    position: relative;
-    bottom: 70px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+}
+.dark .btnExcluirTarefa{
+    color: rgb(139, 133, 133) !important;
+}
+.light .btnEditTarefa{
+    color: rgb(22, 22, 22) !important;
 }
 .boxBtnEdit{
     position: relative;
@@ -108,12 +218,14 @@
    position: relative;
    border: none;
    background-color: transparent;
-   margin-left: 10px;
    height: 30px;
-   bottom: 10px;
+   width: 5%;
    color: rgb(82, 79, 79);
 }
-
+.iconEditTask{
+    height: 25px;
+    margin-right: 5px;
+}
 
 .boxEditTarefa{
     background-color: rgb(194, 188, 188);
@@ -133,6 +245,15 @@
     margin-bottom: 5px;
     color: rgb(63, 60, 60) !important;
     margin-left: 5px;
+}
+.boxEditTarefa  textarea{
+    padding: 7px;
+    border: none;
+    width: 90%;
+    border-radius: 5px;
+}
+.boxEditTarefa textarea:focus{
+    outline: none;
 }
 .boxEditTarefa  input{
     padding: 7px;

@@ -105,7 +105,7 @@ export default function ResetPassword() {
                           {iconPasswordValid ? <CircleCheck className='iconCheck' /> : iconPasswordInvalid ? <ShieldAlert className='iconInvalid' /> : ''}
                       </div>
                         {msg ? <p className=' mx-auto errorValidateRecoveryThree'>{msg}</p> : ''}
-                        <button className='mx-auto' type="submit">Redefinir</button>
+                        <button className='mx-auto btnEntrar' type="submit">Redefinir</button>
                     </form>
                 </div>
             </div>

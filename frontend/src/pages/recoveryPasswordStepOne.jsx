@@ -101,7 +101,7 @@ export default function RecoveryPasswordOne() {
                             {iconEmailValid ? <CircleCheck className='iconCheck' /> : iconEmailInvalid ? <ShieldAlert className='iconInvalid' /> : ''}
                         </div>
                         {erroValidate ? <p className=' mx-auto errorValidateRecoveryOne' >{erroValidate}</p> : ''} 
-                        <button className='mx-auto' type="submit">Enviar</button>
+                        <button className='mx-auto btnEntrar' type="submit">Enviar</button>
                     </form>
                 </div>
             </div>

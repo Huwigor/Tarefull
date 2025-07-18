@@ -1,11 +1,11 @@
 import '../css/userLogin.css'
 import { TriangleAlert, CircleCheck, ShieldAlert, Mail, Eye, EyeOff, Lock } from 'lucide-react'
 import { useState, useEffect } from 'react'
-import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useLocation, useSearchParams } from 'react-router-dom'
 import HeaderAuth from '../components/headerAuth.jsx'
 import { loginUser } from '../services/userServices.js'
 import { validarEmail, validarSenha } from '../utils/sanitizeDataAuthUser.js'
-import iconGoogle from '../assets/iconGoogle.png'
+
 
 
 
@@ -14,6 +14,7 @@ const UserLogin = ()=> {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams();
   const from = searchParams.get("from") || "/";
+  const location = useLocation()
   const [msg, setMsg] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -44,7 +45,7 @@ const UserLogin = ()=> {
       const timeout = setTimeout(() => {
         setTypedText(prev => prev + fullText.charAt(index));
         setIndex(prev => prev + 1);
-      }, 15);
+      }, 1);
       return () => clearTimeout(timeout);
     } else {
       setShowButton(true);
@@ -169,7 +170,7 @@ const UserLogin = ()=> {
               {msg && <p className='errorMsg' ><TriangleAlert className='iconAlert'/> {msg}</p>}
               
               <div className={'boxBtn'}>
-                  <button className='btn btn-md btn-dark'>Entrar</button>
+                  <button className='btn btn-md btn-dark btnEntrar'>Entrar</button>
               </div>
 
               <div className={` d-flex mainRow`} styles={{width:'100%'}}>
@@ -179,7 +180,7 @@ const UserLogin = ()=> {
 
               <div className={` mainGoogle`}>
                 <button type='button' className={'btnGoogle'} onClick={() => window.location.href = `${import.meta.env.VITE_USER_AUTH_GOOGLE}`}>
-                  <img className={'iconGoogle'} src={iconGoogle} alt="" /> <span className='spanTxtGoogle'>Continue com o Google</span>
+                  <img className={'iconGoogle'} src="imagens/icon-google.png" alt="" /><span className='spanTxtGoogle'>Continue com o Google</span>
                 </button>
               </div>   
           </form>

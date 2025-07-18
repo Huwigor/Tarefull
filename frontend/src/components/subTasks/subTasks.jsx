@@ -10,6 +10,7 @@ import { getSubTask } from '../../services/subTaskServices.js'
 
 export default function SubTasks({tarefaId}){
 
+
   const[menuDeleteAberto, setMenuDeleteAberto] = useState(false)
   const [deletandoTarefa, setDeletandoTarefa] = useState(false)
   const [mensagem, setMensagem] = useState('')
@@ -42,7 +43,9 @@ export default function SubTasks({tarefaId}){
   }
   
 
+
   const[subTarefas, setSubTarefas] = useState([])
+
   const carregarSubTarefas = useCallback(async () => {
 
         if(!tarefaId){
@@ -65,9 +68,12 @@ export default function SubTasks({tarefaId}){
     }, [tarefaId]);
 
 
+
+
     useEffect(() => {
        carregarSubTarefas();
     }, [carregarSubTarefas]);
+
 
 
     return(
@@ -81,7 +87,7 @@ export default function SubTasks({tarefaId}){
                         className="subTaskItem"
                     >
                         <div className='col-1 boxBtnUtils'>
-                           <button style={{backgroundColor:'transparent', color: 'lightgray'}} onClick={()=> abrirMenuDeleteTask(sub)}><Trash2 className='iconTrash'/></button>
+                           <button style={{backgroundColor:'transparent', color: 'rgb(82, 79, 79)'}} onClick={()=> abrirMenuDeleteTask(sub)}><Trash2 className='iconTrash'/></button>
 
                            {menuDeleteAberto && deletandoTarefa && deletandoTarefa._id === sub._id && (
                             <DeleteSubTask 
@@ -93,7 +99,7 @@ export default function SubTasks({tarefaId}){
                             />
                            )}
 
-                           <button style={{backgroundColor:'transparent', color: 'lightgray'}} onClick={()=> menuEditOpen(sub)}><Edit className='iconEdit'/></button>
+                           <button style={{backgroundColor:'transparent', color: 'rgb(82, 79, 79)'}} onClick={()=> menuEditOpen(sub)}><Edit className='iconEdit'/></button>
                        
                             {abrirMenuEdit && subTarefaEditando && subTarefaEditando._id === sub._id && (
                                <EditSubTask

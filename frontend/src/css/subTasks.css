@@ -1,7 +1,7 @@
-@media(max-width:300px){
+@media(max-width:750px){
 
     .mainSubTasks{
-        height: 460px !important;
+        height: 360px !important;
         width: 100% !important;
     }
     .subTaskItem{
@@ -27,16 +27,24 @@
         max-width: 300px;
     }
     .boxTxtSub p{
-        font-size: 13px;
+        font-size: 12px !important;
     }
     .formContainerEdit{
-        min-width: 270px !important;
+        min-width: 100% !important;
+        font-size: 13px !important;
     }
+    
     .overflowSubTasks{
         min-height: 950px !important;
     }
     .boxDeleteSubTask{
-        min-width: 250px !important;
+        min-width: 100% !important;
+        font-size: 13px !important;
+    }
+    .boxBtnDelSubTask button{
+        margin: 5px !important;
+        max-width: 80px !important;
+        font-size: 13px !important;
     }
     .msgErroSubTask{
         font-size: 14px !important;
@@ -44,12 +52,22 @@
     .btnStatusSub{
         font-size: 13px !important;
     }
+    .boxInputSub{
+      max-width: 100% !important;
+      margin-top: 10px !important;
+    }
+    .boxInputSub input{
+        font-size: 13px !important;
+    }
+    .iconSendSubTask{
+        height: 20px !important;
+    }
 
 }
 
-@media (min-width:301px) and  (max-width:600px){
+@media (min-width:751px) and  (max-width:1075px){
     .mainSubTasks{
-        height: 460px !important;
+        height: 360px !important;
         width: 100% !important;
     }
     .subTaskItem{
@@ -117,8 +135,8 @@
 }
 .boxInputSub{
     position: relative;
-    width: 90%;
-    margin-top: 30px;
+    max-width: 70%;
+    margin-top: 10px;
 }
 .boxInputSub input{
    width: 100%;
@@ -135,6 +153,9 @@
     font-size: 20px;
     border-radius: 5px;
 }
+.iconSendSubTask{
+    height: 30px;
+}
 .subTaskItem{
     display: flex;
     flex-direction: row;
@@ -148,6 +169,7 @@
     padding: 15px;
 }
 .boxTxtSub p{
+    font-size: 15px;
     word-wrap: break-word;
     white-space: normal;
     margin-left: 5px;
@@ -188,7 +210,7 @@
     display: flex;
 }
 .boxBtnDelSubTask button{
-    margin: 20px !important;
+    margin: 20px;
     padding: 7px;
     width: 100px;
 }
@@ -205,7 +227,8 @@
 }
 .titleEditSubTask{
     color: rgb(54, 53, 53) !important;
-    margin-left: 5px; 
+    margin-left: 5px;
+    margin-bottom: 0; 
 }
 .formContainerEdit form{
     margin-top: 20px;

@@ -56,7 +56,7 @@ export default function SelectGroup({ groupData, onFilterChange }) {
       backgroundColor: state.isFocused
         ? theme === 'dark' ? '#424244' : '#9c9ea4'
         : state.isSelected
-          ? theme === 'dark' ? 'darkgray' : 'black'
+          ? theme === 'dark' ? '#1b1b1c' : 'darkgray'
           : theme === 'dark' ? '#2f3030' : 'lightgray',
       color: theme === 'dark' ? '#a0a3ac' : '#2f3030',
       fontFamily: "'Acme', sans-serif",

@@ -15,7 +15,7 @@ export default function SelectAll({tarefasOrdenadas, tarefaSelecionada, setTaref
         control: (base) => ({
             ...base,
             width: '100%',
-            backgroundColor: theme === 'dark' ? '#242425 ' : 'lightgray',
+            backgroundColor: theme === 'dark' ? '#2f3030' : 'lightgray',
             borderColor: theme === 'dark' ? '#474849 ' : 'darkgray',
             padding: '0px',
             boxShadow: 'none',
@@ -26,10 +26,10 @@ export default function SelectAll({tarefasOrdenadas, tarefaSelecionada, setTaref
         option: (base, state) => ({
             ...base,
             backgroundColor: state.isFocused
-            ? theme === 'dark' ? '#3a3a3c' : '#9c9ea4'
+            ? theme === 'dark' ? '#424244' : '#9c9ea4'
             : state.isSelected
-            ? theme === 'dark' ? 'darkgray' : 'black'
-            : theme === 'dark' ? '#242425 ' : 'lightgray',
+            ? theme === 'dark' ? '#1b1b1c' : 'darkgray'
+            : theme === 'dark' ? '#2f3030' : 'lightgray',
             color: theme === 'dark' ? '#a0a3ac' : '#2f3030',
             padding: 10,
             fontFamily: "'Acme', sans-serif",

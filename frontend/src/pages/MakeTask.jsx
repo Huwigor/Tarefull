@@ -118,7 +118,7 @@ export default function MakeTask(){
           
           <main className={mainMenuOpen ? 'mainMenuOptionShow' : 'mainMenuOptionHidden'}>
               <div className={`menuOptions`}>
-                <button className={`btnMenu`} onClick={abrirMenuTarefa}>Tarefa <ChevronDown style={{color:'rgb(49, 46, 46)'}} className={`chevron-icon ${menuTarefa ? 'rotated' : ''}`} /></button>
+                <button className={`btnMenu`} onClick={abrirMenuTarefa}>Tarefa <ChevronDown className={`chevron-icon ${menuTarefa ? 'rotated' : ''}`} /></button>
 
                 <div className={menuTarefa ? 'menuGrupoOpen' : 'menuGrupo'}>
                    <button style={{marginTop:'15px', marginBottom:'10px'}} onClick={abrirFormTarefas}>Criar Tarefa</button>
@@ -126,7 +126,7 @@ export default function MakeTask(){
                 </div>
 
                 <div>
-                 <button className='btnMenu' onClick={abrirMenuGrupo}>Grupos de Tarefas <ChevronDown style={{color:'rgb(49, 46, 46)'}} className={`chevron-icon ${menuGrupo ? 'rotated' : ''}`} /></button>
+                 <button className='btnMenu' onClick={abrirMenuGrupo}>Grupos de Tarefas <ChevronDown className={`chevron-icon ${menuGrupo ? 'rotated' : ''}`} /></button>
                  <div className={menuGrupo? 'menuGrupoOpen' : 'menuGrupo'}>
                     <button style={{marginTop:'15px', marginBottom:'10px'}} onClick={abrirFormGrupo}>Criar Grupo</button>
                     <button style={{marginBottom:'15px'}} onClick={()=>{setComponenteAtivo('Grupos'); setMainMenuOpen(false); setOverflowMain(false);}}>Todos os Grupos</button>

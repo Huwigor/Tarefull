@@ -52,14 +52,6 @@ export default function TarefasEmAndamento(atualizarTarefa) {
  return (
   <>
     <div className={classe}>
-      <div style={{ width: '300px', margin: '20px' }}>
-        <SelectAll
-          tarefasOrdenadas={tarefasOrdenadas}
-          tarefaSelecionada={tarefaSelecionada}
-          setTarefaSelecionada={setTarefaSelecionada}
-        />
-      </div>
-
       {tarefasFiltradas.length === 0 
       ? (<p style={{marginTop: '20px', marginLeft: '20px'}}>Não há tarefas em progresso!</p>)
       : (

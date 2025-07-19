@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState} from "react"
 import { validarNome } from "../../utils/sanitizeDataGroups.js";
 import { motion, AnimatePresence } from "framer-motion"
 import '../../css/formGroupTask.css';
@@ -65,7 +65,7 @@ export default function FormGrupo({ openFormGrupo, fecharFormGrupo, onGrupoCriad
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className='formContainer'
         >
-          <form className='formAdd' onSubmit={criarGrupo}>
+          <form className='formAdd' onSubmit={criarGrupo} style={{minWidth: '100vw'}}>
             <button 
                 style={{height:'40px', fontSize: '24px', marginRight: '30px', marginBottom:'20px'}}
                 type="button" 

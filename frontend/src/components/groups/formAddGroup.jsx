@@ -68,7 +68,7 @@ export default function FormGrupo({ openFormGrupo, fecharFormGrupo, onGrupoCriad
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className='formContainer'
         >
-          <form className='formAdd' onSubmit={criarGrupo} style={{minWidth: '100vw'}}>
+          <form className='formAdd' onSubmit={criarGrupo}>
             <button 
                 style={{height:'40px', fontSize: '24px', marginRight: '30px', marginBottom:'20px'}}
                 type="button" 

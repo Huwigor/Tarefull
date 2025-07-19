@@ -33,6 +33,9 @@
         min-width: 100% !important;
         font-size: 13px !important;
     }
+    .titleEditSubTask{
+        font-size: 13px !important;
+    }
     
     .overflowSubTasks{
         min-height: 950px !important;
@@ -41,10 +44,14 @@
         min-width: 100% !important;
         font-size: 13px !important;
     }
+    .boxDeleteSubTask p{
+        font-size: 13px !important;
+    }
     .boxBtnDelSubTask button{
         margin: 5px !important;
         max-width: 80px !important;
         font-size: 13px !important;
+        padding: 5px !important;
     }
     .msgErroSubTask{
         font-size: 14px !important;
@@ -61,6 +68,10 @@
     }
     .iconSendSubTask{
         height: 20px !important;
+    }
+    .msgErroSubTask{
+        font-size: 11px !important;
+        padding: 5px !important;
     }
 
 }
@@ -192,7 +203,7 @@
     top: 0;
     left: 0;
     padding: 10px;
-    background-color: aliceblue;
+    background-color: lightgray;
     min-width: 370px;
     height: auto;
     display: flex;
@@ -201,10 +212,16 @@
     align-items: center;
     border-radius: 5px;
 }
+.dark .boxDeleteSubTask{
+    background: #2f3030 !important;
+}
 .boxDeleteSubTask p{
     margin-top: 10px;
     width: 90%;
-    color: rgb(59, 57, 57) !important;
+    color: #2f3030;
+}
+.dark .boxDeleteSubTask p{
+    color: lightgray;
 }
 .boxBtnDelSubTask{
     display: flex;
@@ -225,10 +242,16 @@
     border-radius: 10px;
     background-color: lightgray;
 }
+.dark .formContainerEdit{
+    background-color: #2f3030;
+}
 .titleEditSubTask{
-    color: rgb(54, 53, 53) !important;
+    color: #2f3030 !important;
     margin-left: 5px;
-    margin-bottom: 0; 
+    margin-bottom: 10px; 
+}
+.dark .titleEditSubTask{
+    color: lightgray !important;
 }
 .formContainerEdit form{
     margin-top: 20px;
@@ -252,6 +275,10 @@
     position: relative;
     background-color: transparent;
     border: none;
+    color: #2f3030;
+}
+.dark .btnCloseEdit{
+    color: lightgray;
 }
 .btnCloseEdit:focus{
     outline: none;

@@ -128,9 +128,7 @@
 .light .grupos{
     border-top: 1px solid rgba(163, 161, 161, 0.8)
 }
-.tituloGrupo{
-  
-}
+
 .dark .tituloGrupo{
     color: rgb(197, 195, 195) !important;
 }
@@ -158,9 +156,15 @@
     border-radius: 10px;
     z-index: 510;
 }
+.dark .mainDeleteGroup{
+    background-color: #2f3030;
+}
 .mainDeleteGroup p{
     color: rgb(54, 53, 53) !important;
     overflow-wrap: break-word;
+}
+.dark .mainDeleteGroup p{
+    color: lightgray !important;
 }
 .boxBtnDelete{
     width: 100%;
@@ -211,15 +215,23 @@
     align-items: center;
     border-radius: 10px;
     height: auto;
-    background-color: lightgray;
+    top: 0;
     z-index: 500;
     width: 300px;
     margin-left: 20px;
 }
+.dark .boxEditGroup{
+    background-color: #2f3030;
+}
+.light .boxEditGroup{
+    background-color: lightgray;
+}
 .titleEditGroup{
-    color:rgb(53, 52, 52) !important; 
+    color:#2f3030 !important; 
     margin-left: 20px;
-
+}
+.dark .titleEditGroup{
+    color: lightgray !important;
 }
 .btnSubmitEdit{
     margin-bottom: 30px !important;
@@ -244,6 +256,10 @@
     position: relative;
     right: 30px;
     margin-top: 20px;
+    color: rgb(82, 79, 79);
+}
+.dark .btnCloseEditGroup{
+    color: lightgray;
 }
 .boxEditGroup input{
   width: 90%;

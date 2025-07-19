@@ -74,7 +74,7 @@
         font-size: 13px !important;
     }
     .boxEditTarefa p{
-        font-size: 13px !important;
+        font-size: 12px !important;
     }
     .boxEditTarefa textarea{
         width: 100% !important;
@@ -84,6 +84,10 @@
     }
     .btnSubmitEdit{
         font-size: 13px !important;
+    }
+    .msgErroEditTask{
+        font-size: 11px !important;
+        padding: 5px !important;
     }
 
 }
@@ -187,11 +191,19 @@
     overflow-wrap: break-word;
     flex-direction: column;
     align-items: center;
+    background-color: lightgray !important;
+    border: none !important;
+}
+.dark .boxConfirmDelete{
+    background-color: #2f3030 !important;
 }
 .boxConfirmDelete p{
     margin-top:10px;
     width: 90%;
     color: rgb(63, 60, 60) !important;
+}
+.dark .boxConfirmDelete p{
+    color: lightgray !important;
 }
 .btnExcluirTarefa{
     position: absolute;
@@ -228,7 +240,7 @@
 }
 
 .boxEditTarefa{
-    background-color: rgb(194, 188, 188);
+    background-color: lightgray;
     padding: 20px;
     width: 90%;
     display: flex;
@@ -240,11 +252,17 @@
     position: absolute;
     border-radius: 10px;
 }
+.dark .boxEditTarefa{
+    background-color: #2f3030;
+}
 .boxEditTarefa p{
     margin-top: 10px;
     margin-bottom: 5px;
     color: rgb(63, 60, 60) !important;
     margin-left: 5px;
+}
+.dark .boxEditTarefa p{
+    color: lightgray !important;
 }
 .boxEditTarefa  textarea{
     padding: 7px;
@@ -268,7 +286,10 @@
     margin-bottom: 20px;
     background-color: transparent;
     border: none;
-    color: black;
+    color: #2f3030;
+}
+.dark .btnFecharEdit{
+    color: lightgray;
 }
 .msgErroEditTask{
     width: 90%;

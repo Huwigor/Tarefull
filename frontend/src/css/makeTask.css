@@ -264,7 +264,6 @@
 .btnMenuAll{
   position: relative;
   color: white;
-  background-color: rgba(15, 15, 15, 0.7) !important;
   background-color: transparent;
   border: none;
   height: 50px;
@@ -272,6 +271,13 @@
   width: auto;
   margin-top: 5px;
 }
+.light .btnMenuAll{
+    background-color: lightgray !important;
+    color: #2f3030;
+}
+.dark .btnMenuAll{
+  background-color: rgba(47, 48, 48, 0.7) !important;
+} 
 .btnMenuOpen{
   position: relative;
   color: white;
@@ -282,6 +288,13 @@
   border: none;
   height: 50px;
   left: 85%;
+}
+.light .btnMenuOpen{
+    background-color: lightgray !important;
+    color: #2f3030;
+}
+.dark .btnMenuOpen{
+  background-color: rgba(47, 48, 48, 0.7) !important;
 }
 .arrowMenu{
   height: 20px;
@@ -319,10 +332,21 @@
     width: 100%;
     padding: 15px 15px 15px 15px;
     margin-top: 5px;
+    text-align: start;
     font-size: 15px;
+}
+.light .btnMenu{
+  background-color: lightgray;
+}
+.dark .btnMenu{
+  background-color: #2f3030;
+  color: lightgray;
 }
 .btnMenu:focus{
     outline: none;
+}
+.dark .chevron-icon{
+  color: lightgray;
 }
 
 
@@ -351,6 +375,13 @@
     font-size: 15px;
 
 }
+.dark .menuGrupo button{
+  background-color: #2f3030;
+  color: lightgray;
+}
+.light .menuGrupo button{
+  background-color: lightgray;
+}
 
 .menuGrupoOpen{
     opacity: 1;
@@ -370,6 +401,13 @@
    width: 90%;
    text-align: start;
    font-size: 15px;
+}
+.dark .menuGrupoOpen button{
+  background-color: #2f3030;
+  color: lightgray;
+}
+.light .menuGrupoOpen button{
+  background-color: lightgray;
 }
 
 .mainComponents{

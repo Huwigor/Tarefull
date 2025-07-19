@@ -60,9 +60,21 @@
     gap: 10px;
     padding-bottom: 50px;
 }
+.light .formAdd{
+    background-color: lightgray;
+}
+.dark .formAdd{
+    background-color: #2f3030;
+}
 .formAdd p{
     margin-bottom: 0;
     color: rgb(49, 47, 47) !important;
+}
+.light .formAdd p{
+    color: rgb(31, 30, 30);
+}
+.dark .formAdd p{
+    color: lightgray !important;
 }
 .formAdd textarea{
     width: 80%;
@@ -73,8 +85,9 @@
 .formAdd textarea:focus{
     outline: none;
 }
+
 .formAdd textarea::placeholder{
-    color: rgb(20, 20, 20);
+    color: rgb(54, 53, 53);
 }
 .formAdd input{
     width: 80%;
@@ -86,7 +99,7 @@
     outline: none;
 }
 .formAdd input::placeholder{
-    color: rgb(20, 20, 20);
+    color: rgb(34, 33, 33) !important;
 }
 .msgErro{
     font-size: 17px;

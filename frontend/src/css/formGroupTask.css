@@ -66,6 +66,14 @@
 .dark .formAdd{
     background-color: #2f3030;
 }
+.btnFecharFormGrupo{
+    color: #2f3030 !important;
+    background-color: transparent;
+    border: none;
+}
+.dark .btnFecharFormGrupo{
+    color: lightgray !important;
+}
 .formAdd p{
     margin-bottom: 0;
     color: rgb(49, 47, 47) !important;

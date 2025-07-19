@@ -2,6 +2,7 @@ import { useState} from "react"
 import { validarNome } from "../../utils/sanitizeDataGroups.js";
 import { motion, AnimatePresence } from "framer-motion"
 import '../../css/formGroupTask.css';
+import { X } from "lucide-react";
 import { addGroup } from "../../services/groupServices";
 import Swal from 'sweetalert2'
 
@@ -70,10 +71,10 @@ export default function FormGrupo({ openFormGrupo, fecharFormGrupo, onGrupoCriad
         >
           <form className='formAdd' onSubmit={criarGrupo}>
             <button 
-                style={{height:'40px', fontSize: '24px', marginRight: '30px', marginBottom:'20px'}}
+                style={{height:'30px', fontSize: '20px', marginRight: '30px', marginBottom:'20px'}}
                 type="button" 
-                className={`btn btn-sm btn-close ms-auto`} 
-                onClick={()=> {fecharFormGrupo(); limparForm();}}>
+                className={` ms-auto btnFecharFormGrupo`} 
+                onClick={()=> {fecharFormGrupo(); limparForm();}}> <X/>
             </button>
             <textarea
               type="text"

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion"
 import { validarNome } from "../../utils/sanitizeDataTasks.js"
 import '../../css/formGroupTask.css';
+import { X } from "lucide-react";
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { addTask } from "../../services/taskServices";
@@ -104,13 +105,13 @@ export default function FormTarefas({ abrirMenu, fecharMenu, onTarefaCriada }) {
           exit={{ opacity: 0, scale: 0.8, y: 50 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className={'formContainer'}
-        >
+        > 
           <form className='formAdd' onSubmit={handleSubmit}>
             <button 
-                style={{height:'40px', fontSize: '20px', marginRight: '30px', marginBottom:'20px'}}
+                style={{height:'30px', fontSize: '20px', marginRight: '30px', marginBottom:'20px'}}
                 type="button" 
-                className={`btn btn-sm btn-close btn-danger ms-auto`} 
-                onClick={()=> {fecharMenu(); limparForm();}}>
+                className={` btnFecharFormGrupo ms-auto`} 
+                onClick={()=> {fecharMenu(); limparForm();}}><X/>
             </button>
             <textarea
               type="text"

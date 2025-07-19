@@ -33,7 +33,8 @@ export default function SelectAll({tarefasOrdenadas, tarefaSelecionada, setTaref
             color: theme === 'dark' ? '#a0a3ac' : '#2f3030',
             padding: 10,
             fontFamily: "'Acme', sans-serif",
-            fontSize: '14px',
+            fontSize: '13px',
+            marginTop: '25px',
             whiteSpace: 'nowrap',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
@@ -47,7 +48,7 @@ export default function SelectAll({tarefasOrdenadas, tarefaSelecionada, setTaref
             ...base,
             color: theme === 'dark' ? '#a0a3ac' : '#2f3030',
             fontFamily: "'Acme', sans-serif",
-            fontSize: '14px',
+            fontSize: '13px',
   }),
     };
 

@@ -44,7 +44,8 @@ export default function SelectGroup({ groupData, onFilterChange }) {
       borderColor: theme === 'dark' ? '#474849' : 'darkgray',
       boxShadow: 'none',
       fontFamily: "'Acme', sans-serif",
-      fontSize: '14px',
+      fontSize: '13px',
+      marginTop: '25px',
       width: '100%',
       padding: '0px',
       '&:hover': {
@@ -60,7 +61,7 @@ export default function SelectGroup({ groupData, onFilterChange }) {
           : theme === 'dark' ? '#2f3030' : 'lightgray',
       color: theme === 'dark' ? '#a0a3ac' : '#2f3030',
       fontFamily: "'Acme', sans-serif",
-      fontSize: '14px',
+      fontSize: '13px',
       padding: 10,
       whiteSpace: 'nowrap',
       overflow: 'hidden',
@@ -75,7 +76,7 @@ export default function SelectGroup({ groupData, onFilterChange }) {
       ...base,
       color: theme === 'dark' ? '#a0a3ac' : '#2f3030',
       fontFamily: "'Acme', sans-serif",
-      fontSize: '14px',
+      fontSize: '13px',
     }), 
 };
 

@@ -21,6 +21,14 @@
  .msgErro{
     font-size: 13px !important;
  }
+
+ .swalBox{
+    font-size: 12px !important;
+ }
+ .swalBox .swal2-confirm{
+    min-width: 100px !important;
+ }
+
 }
 
 .formContainer {
@@ -124,3 +132,11 @@
     left: 10%;
     margin-bottom: 5px;
 }
+
+
+.swalBox{
+    font-size: 14px;
+ }
+ .swalBox .swal2-confirm{
+    min-width: 100px;
+ }

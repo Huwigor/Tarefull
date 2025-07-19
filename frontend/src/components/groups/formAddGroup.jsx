@@ -35,7 +35,10 @@ export default function FormGrupo({ openFormGrupo, fecharFormGrupo, onGrupoCriad
       Swal.fire({
         title: 'Grupo Adicionado!',
         icon: 'success',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        customClass: {
+          popup: 'swalBox'
+        }
       })
 
       setNomeGrupo('')

@@ -69,7 +69,10 @@ export default function FormTarefas({ abrirMenu, fecharMenu, onTarefaCriada }) {
       Swal.fire({
         title: 'Tarefa Adicionada!',
         icon: 'success',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        customClass: {
+          popup: 'swalBox'
+        }
       })
       
       setNome('')

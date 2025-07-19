@@ -309,7 +309,7 @@
     background-color: rgba(223, 223, 217, 0.9);
     border: none;
     border-radius: 8px;
-    color: rgb(5, 5, 5);
+    color: rgb(31, 30, 30);
     width: 100%;
     padding: 15px 15px 15px 15px;
     margin-top: 5px;
@@ -321,12 +321,7 @@
 
 
 
-
-
-
-
-
- .menuGrupo{
+.menuGrupo{
     opacity: 0;
     max-height: 0;
     display: flex;
@@ -339,7 +334,7 @@
     padding: 7px 7px 7px 10px;
     border: none;
     background-color: transparent;
-    color: rgb(7, 7, 7);
+    color: rgb(31, 30, 30);
     background-color: rgba(223, 223, 217, 0.9);
     border-radius: 8px;
     width: 90%;
@@ -360,7 +355,7 @@
    padding: 7px 7px 7px 10px;
    border: none;
    background-color: transparent;
-   color: rgb(7, 7, 7);
+   color: rgb(31, 30, 30);
    background-color: rgba(223, 223, 217, 0.9);
    border-radius: 8px;
    width: 90%;
@@ -397,11 +392,3 @@
 }
 
 
-.formContainer {
-    position: fixed;
-    top: 20%;
-    left: 30%;
-    width: 100%;
-    z-index: 50 !important;
-    font-family: 'Acme', sans-serif !important; 
-}

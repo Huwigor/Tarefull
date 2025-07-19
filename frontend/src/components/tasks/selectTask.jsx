@@ -18,6 +18,7 @@ export default function SelectAll({tarefasOrdenadas, tarefaSelecionada, setTaref
             backgroundColor: theme === 'dark' ? '#2f3030' : 'lightgray',
             borderColor: theme === 'dark' ? '#474849 ' : 'darkgray',
             padding: '0px',
+            marginTop: '25px',
             boxShadow: 'none',
             '&:hover': {
                borderColor: 'black',
@@ -34,7 +35,6 @@ export default function SelectAll({tarefasOrdenadas, tarefaSelecionada, setTaref
             padding: 10,
             fontFamily: "'Acme', sans-serif",
             fontSize: '13px',
-            marginTop: '25px',
             whiteSpace: 'nowrap',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
